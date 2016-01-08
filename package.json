@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "babel-polyfill": "^6.1.19",
+    "eslint-plugin-react": "^3.14.0",
     "event-stream": "^3.3.2",
     "express": "^4.13.3",
     "isomorphic-fetch": "^2.1.1",
@@ -35,6 +36,7 @@
     "gulp-cond": "^1.0.0",
     "gulp-env": "^0.2.0",
     "gulp-eslint": "^1.0.0",
+    "gulp-if": "^2.0.0",
     "gulp-jasmine": "^2.1.0",
     "gulp-jasmine-browser": "^0.2.3",
     "gulp-livereload": "^3.8.1",

@@ -1,13 +1,10 @@
-const {assetPath} = require('../server/asset_helper');
 const {compact} = require('../helpers/application_helper');
 const debounce = require('lodash.debounce');
 const del = require('del');
-const File = require('vinyl');
 const gulp = require('gulp');
 const mergeStream = require('merge-stream');
 const path = require('path');
 const plugins = require('gulp-load-plugins')();
-const runSequence = require('run-sequence');
 /* eslint-disable no-unused-vars */
 const React = require('react');
 /* eslint-enable no-unused-vars */
@@ -49,10 +46,10 @@ function sass({watch = false} = {}) {
   }
   return stream
     .pipe(plugins.cond(!isProduction(), () => plugins.sourcemaps.init()))
-.pipe(plugins.sass({errLogToConsole: true}))
+    .pipe(plugins.sass({errLogToConsole: true}))
     .pipe(plugins.autoprefixer())
     .pipe(plugins.cond(!isProduction(), () => plugins.sourcemaps.write()))
-.pipe(plugins.cond(isProduction(), () => plugins.minifyCss()))
+    .pipe(plugins.cond(isProduction(), () => plugins.minifyCss()));
 }
 
 function all({hotModule} = {}) {

@@ -17,8 +17,8 @@
     "jQuery": true,
     "React": true,
     "ReactDOM": true,
-    "ReactDOMServer": true,
     "setProps": true,
+    "Factory": true,
     "$": true
   },
 

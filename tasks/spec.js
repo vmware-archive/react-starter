@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const mergeStream = require('merge-stream');
-const {jasmine, jasmineBrowser, processEnv, plumber} = require('gulp-load-plugins')();
+const {jasmineBrowser, plumber} = require('gulp-load-plugins')();
 const webpack = require('webpack-stream');
 
 function appAssets(options = {}) {

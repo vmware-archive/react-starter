@@ -6,7 +6,10 @@ const {assetPath} = require('./asset_helper');
 const express = require('express');
 const Layout = require('../app/components/layout');
 const path = require('path');
+/* eslint-disable no-unused-vars */
 const React = require('react');
+/* eslint-enable no-unused-vars */
+
 const ReactDOMServer = require('react-dom/server');
 
 const app = express();
