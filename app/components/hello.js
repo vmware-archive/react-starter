@@ -4,7 +4,7 @@ const React = require('react');
 
 const Hello = ({person: {name}}) => {
   return (
-    <div>{`Hello ${name}`}</div>
+    <div className="hello">{`Hello ${name}`}</div>
   );
 };
 
