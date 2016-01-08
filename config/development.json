@@ -1,0 +1,5 @@
+{
+  "assetHost": "localhost",
+  "assetPort": 3001,
+  "useHotModule": true
+}
