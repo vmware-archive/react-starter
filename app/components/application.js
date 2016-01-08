@@ -7,7 +7,7 @@ const Application = React.createClass({
   render() {
     return  (
       <div className="pui-react-starter">
-        <Hello {...{name: 'August'}}/>
+        <Hello {...{person: {name: 'August'}}}/>
       </div>
     )
   }

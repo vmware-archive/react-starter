@@ -1,8 +1,8 @@
 const React = require('react');
 
-const Hello = ({name}) => {
+const Hello = ({person: {name}}) => {
   return (
-    <div>{`hello ${name}`}</div>
+    <div>{`Hello ${name}`}</div>
   )
 };
 
