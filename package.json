@@ -55,7 +55,6 @@
     "jquery": "^2.1.4",
     "merge-stream": "^1.0.0",
     "mock-promises": "^0.6.0",
-    "node-sass": "^3.3.3",
     "npm": "^3.4.1",
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",

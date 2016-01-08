@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     config.useHotModule && 'client.js',
     'application.js'
   ]).map(f => assetPath(f, config));
-  const stylesheets = [];
+  const stylesheets = ['application.css'].map(f => assetPath(f, config));
   const html = ReactDOMServer.renderToString(<Layout {...{entry: Application, scripts, stylesheets, title}}/>);
   res.type('html').send(html);
 });

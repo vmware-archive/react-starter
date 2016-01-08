@@ -21,20 +21,12 @@ function isProduction() {
   return process.env.NODE_ENV === 'production';
 }
 
-function rename(options = {}) {
-  return through2.obj(function(file, encoding, callback) {
-    const {base = process.cwd(), path: p = path.basename(file.path)} = options;
-    callback(null, Object.assign(file, {base, path: p}));
-  });
-}
-
 function javascript(options = {}) {
   const webpackConfig = Object.assign({}, require('../config/webpack.config')(process.env.NODE_ENV), options);
   return gulp.src(['app/components/application.js'])
     .pipe(plugins.plumber())
     .pipe(webpack(webpackConfig))
     .pipe(plugins.tap(restartServer))
-    .pipe(rename());
 }
 
 function sass({watch = false} = {}) {
@@ -86,8 +78,7 @@ gulp.task('assets', ['clean-assets'], function() {
 
 gulp.task('build-assets-server', ['clean-assets-server'], function() {
   all({hotModule: true})
-    .pipe(gulp.dest('tmp/public'))
-    .pipe(plugins.livereload({start: true}));
+    .pipe(gulp.dest('tmp/public'));
 });
 
 gulp.task('assets-server', ['build-assets-server'], function() {
