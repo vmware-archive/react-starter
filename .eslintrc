@@ -19,7 +19,11 @@
     "ReactDOM": true,
     "setProps": true,
     "Factory": true,
-    "$": true
+    "$": true,
+    "describeWithWebdriver": true,
+    "sleep": true,
+    "visit": true,
+    "waitForText": true
   },
 
   "parser": "babel-eslint",

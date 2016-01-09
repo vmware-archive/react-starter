@@ -8,7 +8,6 @@ const plugins = require('gulp-load-plugins')();
 /* eslint-disable no-unused-vars */
 const React = require('react');
 /* eslint-enable no-unused-vars */
-const through2 = require('through2');
 const webpack = require('webpack-stream');
 
 const restartServer = debounce(require('./server').restartServer, 1000);
@@ -26,7 +25,7 @@ function javascript(options = {}) {
   return gulp.src(['app/components/application.js'])
     .pipe(plugins.plumber())
     .pipe(webpack(webpackConfig))
-    .pipe(plugins.tap(restartServer))
+    .pipe(plugins.tap(restartServer));
 }
 
 function sass({watch = false} = {}) {

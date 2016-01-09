@@ -54,6 +54,7 @@
     "jasmine-ajax": "^3.2.0",
     "jasmine_dom_matchers": "^1.0.0",
     "jquery": "^2.1.4",
+    "lazypipe": "^1.0.1",
     "lsof": "^0.1.0",
     "merge-stream": "^1.0.0",
     "mock-promises": "^0.6.0",

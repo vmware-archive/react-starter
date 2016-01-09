@@ -1,12 +1,26 @@
 const gulp = require('gulp');
-const plugins = require('gulp-load-plugins')();
+const {plumber, eslint, if: gulpIf} = require('gulp-load-plugins')();
+const lazypipe = require('lazypipe');
 
-gulp.task('lint', () => {
+function Lint(gulp) {
+  gulp.task('lint', () => {
+    return gulp.src(['gulpfile.js', 'app/**/*.js', 'helpers/**/*.js', 'server/**/*.js', 'spec/**/*.js', 'tasks/**/*.js'], {base: '.'})
+      .pipe(Lint.lint());
+  });
+}
+
+function lint() {
   const {FIX: fix = true} = process.env;
-  return gulp.src(['gulpfile.js', 'app/**/*.js', 'helpers/**/*.js', 'server/**/*.js', 'spec/**/*.js', 'tasks/**/*.js'], {base: '.'})
-    .pipe(plugins.plumber())
-    .pipe(plugins.eslint({fix}))
-    .pipe(plugins.eslint.format('stylish'))
-    .pipe(plugins.if(file => file.eslint && typeof file.eslint.output === 'string', gulp.dest('.')))
-    .pipe(plugins.eslint.failOnError());
-});
+  return lazypipe()
+    .pipe(() => plumber())
+    .pipe(() => eslint({fix}))
+    .pipe(() => eslint.format('stylish'))
+    .pipe(() => gulpIf(file => file.eslint && typeof file.eslint.output === 'string', gulp.dest('.')))
+    .pipe(() => eslint.failAfterError());
+}
+
+Lint.lint = lint();
+
+Lint(gulp);
+
+module.exports = Lint;
