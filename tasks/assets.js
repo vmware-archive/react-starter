@@ -1,12 +1,15 @@
 const {compact} = require('../helpers/application_helper');
 const debounce = require('lodash.debounce');
 const del = require('del');
+const File = require('vinyl');
 const gulp = require('gulp');
 const mergeStream = require('merge-stream');
+const through2 = require('through2');
 const path = require('path');
 const plugins = require('gulp-load-plugins')();
 /* eslint-disable no-unused-vars */
 const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 /* eslint-enable no-unused-vars */
 const webpack = require('webpack-stream');
 
@@ -40,12 +43,38 @@ function sass({watch = false} = {}) {
     .pipe(plugins.sass({errLogToConsole: true}))
     .pipe(plugins.autoprefixer())
     .pipe(plugins.cond(!isProduction(), () => plugins.sourcemaps.write()))
-    .pipe(plugins.cond(isProduction(), () => plugins.minifyCss()));
+    .pipe(plugins.cond(isProduction(), () => plugins.cssnano()));
+}
+
+function html() {
+  let {entry = ['app/components/application.js'], hotModule, scripts = ['application.js'], stylesheets = ['application.css'], title = 'The default title'} = require('../lib/config');
+  const {assetPath} = require('../lib/asset_helper');
+  let stream = gulp.src(entry).pipe(plugins.plumber());
+  if (isDevelopment()) {
+    stream = stream.pipe(plugins.watch(entry));
+  }
+  return stream
+    .pipe(through2.obj(function(file, enc, callback){
+      delete require.cache[require.resolve(file.path)];
+      const Layout = require('../lib/layout');
+      const assetConfig = isDevelopment() ? {assetHost: 'localhost', assetPort: 3001} : {};
+      stylesheets = stylesheets.map(f => assetPath(f, assetConfig));
+      scripts = [hotModule && 'client.js', ...scripts].filter(Boolean).map(f => assetPath(f, assetConfig));
+      const entry = require(file.path);
+      const props = {entry, scripts, stylesheets, title};
+      const html = ReactDOMServer.renderToStaticMarkup(<Layout {...props}/>);
+      const indexFile = new File({
+        path: 'index.html',
+        contents: new Buffer(html)
+      });
+      callback(null, indexFile);
+    }));
 }
 
 function all({hotModule} = {}) {
   const watch = isDevelopment();
   const streams = compact([
+    html(),
     !hotModule && javascript({watch}),
     sass({watch})
   ]);
@@ -77,7 +106,8 @@ gulp.task('assets', ['clean-assets'], function() {
 
 gulp.task('build-assets-server', ['clean-assets-server'], function() {
   all({hotModule: true})
-    .pipe(gulp.dest('tmp/public'));
+    .pipe(gulp.dest('tmp/public'))
+    .pipe(plugins.livereload({start: true}));
 });
 
 gulp.task('assets-server', ['build-assets-server'], function() {

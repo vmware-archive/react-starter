@@ -5,9 +5,6 @@ module.exports = function(env = null) {
     entry: {
       application: './app/components/application.js'
     },
-    externals: {
-      moment: 'moment'
-    },
     module: {
       loaders: [
         {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}

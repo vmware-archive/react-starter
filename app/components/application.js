@@ -1,9 +1,9 @@
 require('babel-polyfill');
 const Hello = require('./hello');
-const Layout = require('./layout');
+const Layout = require('./../../lib/layout');
 const React = require('react');
 
-const Application = React.createClass({
+class Application extends React.Component {
   render() {
     return (
       <div className="pui-react-starter">
@@ -11,7 +11,7 @@ const Application = React.createClass({
       </div>
     );
   }
-});
+};
 
 Layout.init(Application);
 

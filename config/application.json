@@ -1,3 +1,9 @@
 {
-
+  "title": "My React Starter",
+  "scripts": [
+    "application.js"
+  ],
+  "stylesheets": [
+    "application.css"
+  ]
 }
