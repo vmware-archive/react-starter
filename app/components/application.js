@@ -1,6 +1,6 @@
 require('babel-polyfill');
 const Hello = require('./hello');
-const Layout = require('./../../lib/layout');
+const Bootstrap = require('../bootstrap');
 const React = require('react');
 
 class Application extends React.Component {
@@ -13,6 +13,6 @@ class Application extends React.Component {
   }
 }
 
-Layout.init(Application);
+Bootstrap.init(Application);
 
 module.exports = Application;
