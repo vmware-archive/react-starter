@@ -11,7 +11,7 @@ class Application extends React.Component {
       </div>
     );
   }
-};
+}
 
 Layout.init(Application);
 

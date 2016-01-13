@@ -28,6 +28,7 @@
     "bluebird": "^2.10.2",
     "classnames": "^2.2.0",
     "debug": "^2.2.0",
+    "del": "^2.2.0",
     "director": "pivotal-cf/director.git#2181b2f9cbc1d128b77393c43c4398526397bade",
     "eslint-plugin-react": "^3.6.3",
     "foreman": "^1.4.1",
