@@ -1,2 +1,2 @@
-web: gulp assets-server
+web: gulp s
 jasmine: gulp jasmine

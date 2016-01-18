@@ -3,29 +3,22 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
 const thenify = require('thenify');
 const runSequence = require('run-sequence');
-const {killServer} = require('../tasks/server');
-const lsof = require('lsof');
+const {killDevServer} = require('../tasks/server');
 
 const getPort = thenify(require('portfinder').getPort);
-const assetPort = 3001;
 
-function rawTcpPort(port) {
-  return new Promise(resolve => lsof.rawTcpPort(port, resolve));
-}
-
-function buildSequence(processes, env) {
-  const {ASSET_HOST, ASSET_PORT, NODE_ENV, PORT} = process.env;
-  if (processes.length) env = {...env, ASSET_PORT: assetPort, ASSET_HOST: 'localhost'};
+function buildSequence(env) {
+  const {NODE_ENV, PORT} = process.env;
   return {
     sequence: compact([
-      !processes.length && 'assets',
-      'server',
+      'assets',
+      'dev-server',
       'wait-for-server',
       'jasmine-integration'
     ]),
     cleanup: done => () => {
-      Object.assign(process.env, {ASSET_HOST, ASSET_PORT, NODE_ENV, PORT});
-      killServer();
+      Object.assign(process.env, {NODE_ENV, PORT});
+      killDevServer();
       done();
     },
     env
@@ -33,13 +26,13 @@ function buildSequence(processes, env) {
 }
 
 function runIntegration() {
-  return Promise.all([rawTcpPort(assetPort), getPort()])
-    .then(([processes, port]) => {
+  return getPort()
+    .then((port) => {
       let environment = {
         NODE_ENV: 'integration',
         PORT: port
       };
-      const {env, sequence, cleanup} = buildSequence(processes, environment);
+      const {env, sequence, cleanup} = buildSequence(environment);
       Object.assign(process.env, env);
       return {sequence, cleanup};
     });
