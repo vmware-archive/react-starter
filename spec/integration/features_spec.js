@@ -6,7 +6,6 @@ describeWithWebdriver('Features', () => {
   describe('when viewing the app', () => {
     beforeEach(async (done) => {
       page = (await visit('/')).page;
-      await sleep(1000);
       done();
     });
 

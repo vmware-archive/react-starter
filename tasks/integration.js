@@ -39,7 +39,7 @@ function runIntegration() {
 }
 
 gulp.task('jasmine-integration', () => {
-  return gulp.src('spec/integration/**/*.js')
+  return gulp.src('spec/integration/**/*_spec.js')
     .pipe(plugins.plumber())
     .pipe(plugins.jasmine({includeStackTrace: true}));
 });
