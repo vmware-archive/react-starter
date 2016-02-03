@@ -1,7 +1,7 @@
 language: node_js
 node_js: 5.5.0
 install:
-  - npm cache clean
+  - npm install -g node-sass
   - npm install
   - npm install
 script:
