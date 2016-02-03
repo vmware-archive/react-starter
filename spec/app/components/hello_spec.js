@@ -10,4 +10,8 @@ describe('Hello', () => {
   it('says hello to that person', () => {
     expect(root).toHaveText('Hello Felix');
   });
+
+  it('works', () => {
+    expect(true).toBe(true);
+  });
 });
