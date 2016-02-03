@@ -1,6 +1,6 @@
 # React Starter
 
-![Build Status](https://travis-ci.org/pivotal-cf/react-starter.svg?branch=master)
+[![Build Status](https://travis-ci.org/pivotal-cf/react-starter.svg?branch=master)](https://travis-ci.org/pivotal-cf/react-starter)
 
 React Starter is a `Hello World` project with much of the tooling in place you would need for a fully-featured React application.
 
