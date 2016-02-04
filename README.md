@@ -6,7 +6,7 @@ React Starter is a `Hello World` project with much of the tooling in place you w
 
 ## Getting Started
 
-First, make sure you have node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly)
+First, make sure you have node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
 
 ```
 git clone git@github.com:pivotal-cf/react-starter.git && cd react-starter
@@ -37,11 +37,12 @@ To run the tests headlessly in phantomjs:
 gulp spec-app
 ```
 
-To run a Jasmine server (on port 8888)
+To run a Jasmine server (on port 8888):
 ```
 gulp jasmine
 ```
 The jasmine server will watch for file changes and update appropriately.
+Note that `gulp foreman` will start a jasmine server for you.
 
 The file `spec/app/components/hello_spec.js` is provided as an example test.
 
@@ -69,7 +70,7 @@ See `spec/factories/person.js` as an example.
 
 Integration tests use [selenium-standalone](https://github.com/vvo/selenium-standalone) and [webdriverio](http://webdriver.io/).
 
-Selenium requires Java, so make sure this is installed. Then, you can run:
+Selenium requires Java, so make sure this is installed. Run:
 ```
 gulp spec-integration
 ```
@@ -81,6 +82,8 @@ Webdriverio is based on promises. Any time you interact with the browser in any 
 To make this more readable, we use `async`/`await` syntax (from EcmaScript 2016) and the `done` callback from Jasmine.
 
 There are also a number of functions provided in `spec/integration/helpers/webdriver_helper.js`.
+
+An example integration test is provided at `spec/integration/features_spec.js`.
 
 ### Linting
 
@@ -95,15 +98,13 @@ The linting rules are set in `.eslintrc`
 
 ### Development
 
-To start your development server
+To start your development server, run:
 
 ```
 gulp s
 ```
 
-This will serve at [3000](http://localhost:3000). 
-The javascript is compiled using [Babel](https://babeljs.io/) and [Webpack](https://webpack.github.io/)
+This will serve at [3000](http://localhost:3000). Note that `gulp foreman` will start a development server for you.
+The JavaScript is compiled using [Babel](https://babeljs.io/) and [Webpack](https://webpack.github.io/).
 By default, the entry point for your JavaScript is `app/components/application.js`.
-Webpack settings are controlled in `config/webpack.config.js`
-
-.......
+Webpack settings are controlled in `config/webpack.config.js`.
