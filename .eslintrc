@@ -20,9 +20,12 @@
     "setProps": true,
     "Factory": true,
     "$": true,
+    "click": true,
     "describeWithWebdriver": true,
+    "setValue": true,
     "sleep": true,
     "visit": true,
+    "waitForExist": true,
     "waitForText": true
   },
 

@@ -55,6 +55,13 @@ function waitForCount(page, selector, count, operator = '===') {
   /* eslint-enable no-eval */
 }
 
+function setValue(page, selector, inputText = '') {
+  return waitForExist(page, selector)
+    .then(function() {
+      return page.setValue(selector, inputText);
+    });
+}
+
 function waitForValue(page, selector, value, ...args) {
   return page.waitForValue(selector, value, ...args).then(function(status) {
     if(!status) throw new Error(`WaitForValue timed out waiting for ${selector}, ${value}`);
@@ -90,4 +97,4 @@ function describeWithWebdriver(name, callback, options = {}) {
   });
 }
 
-module.exports = {click, describeWithWebdriver, visit, waitForCount, waitForValue, waitForText, waitForExist, waitForCookie, sleep};
+module.exports = {click, describeWithWebdriver, visit, waitForCount, setValue, waitForValue, waitForText, waitForExist, waitForCookie, sleep};

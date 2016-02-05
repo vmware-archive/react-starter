@@ -2,6 +2,7 @@ require('babel-polyfill');
 require('jasmine-ajax');
 require('jasmine_dom_matchers');
 require('../spec_helper');
+require('./react_matchers');
 
 const factories = require.context('../factories', true, /\.js$/);
 factories.keys().forEach(factories);
