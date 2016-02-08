@@ -19,7 +19,7 @@ class Application extends React.Component {
 
     return (
       <div className="pui-react-starter">
-        <header>REACT tOdOApp!</header>
+        <header>Things to do</header>
         <TodoAdder addTodoItem={this.addTodoItem} />
         <TodoList todoItems={todoItems}/>
       </div>
