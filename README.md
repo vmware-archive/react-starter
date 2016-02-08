@@ -24,7 +24,7 @@ gulp foreman
 ```
 
 This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888).
-The app includes example React architecture, along with Jasmine unit tests and a Webdriver.io integration test.
+The app includes example React architecture, along with Jasmine unit tests and a WebdriverIO integration test.
 
 ## Testing
 
@@ -68,7 +68,7 @@ See `spec/factories/person.js` as an example.
 
 ### Integration Testing
 
-Integration tests use [selenium-standalone](https://github.com/vvo/selenium-standalone) and [webdriverio](http://webdriver.io/).
+Integration tests use [selenium-standalone](https://github.com/vvo/selenium-standalone) and [WebdriverIO](http://webdriver.io/).
 
 Selenium requires Java, so make sure this is installed. Run:
 ```
@@ -76,9 +76,9 @@ gulp spec-integration
 ```
 
 This will take any files matching `spec/integration/**/*_spec.js` and run them through Jasmine.
-We provide a `describeWithWebdriver` function, inside of which you have access to webdriverio functionality.
+We provide a `describeWithWebdriver` function, inside of which you have access to WebdriverIO functionality.
 
-Webdriverio is based on promises. Any time you interact with the browser in any way, this will be asynchronous and return a promise.
+WebdriverIO is based on promises. Any time you interact with the browser in any way, this will be asynchronous and return a promise.
 To make this more readable, we use `async`/`await` syntax (from EcmaScript 2016) and the `done` callback from Jasmine.
 
 There are also a number of functions provided in `spec/integration/helpers/webdriver_helper.js`.
