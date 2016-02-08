@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/pivotal-cf/react-starter.svg?branch=master)](https://travis-ci.org/pivotal-cf/react-starter)
 
-React Starter is a `Hello World` project with much of the tooling in place you would need for a fully-featured React application.
+React Starter is a todoApp project with much of the tooling in place you would need for a fully-featured React application.
 
 ## Getting Started
 
@@ -23,8 +23,8 @@ To make life easier, add `./node_modules/.bin` to your PATH. This will give you 
 gulp foreman
 ```
 
-This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888) 
-You should see a simple app that says 'Hello August' with a single unit test in Jasmine. 
+This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888).
+The app includes example React architecture, along with Jasmine unit tests and a Webdriver.io integration test.
 
 ## Testing
 
