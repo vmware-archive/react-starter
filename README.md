@@ -30,7 +30,7 @@ The app includes example React architecture, along with Jasmine unit tests and a
 
 ### Unit Testing
 
-Any files matching `spec/app/**/*_spec.js` will be run as part of [Jasmine](jasmine.github.io).
+Any files matching `spec/app/**/*_spec.js` will be run as part of [Jasmine](jasmine.github.io). There are some example tests included in `spec/app/components/`.
 
 To run the tests headlessly in phantomjs:
 ```
@@ -43,8 +43,6 @@ gulp jasmine
 ```
 The jasmine server will watch for file changes and update appropriately.
 Note that `gulp foreman` will start a jasmine server for you.
-
-The file `spec/app/components/hello_spec.js` is provided as an example test.
 
 In general, testing a React component will need the line `require('../spec_helper')` as the first line.
 The test will also probably have lines like
