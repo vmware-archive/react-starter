@@ -1,11 +1,7 @@
 const React = require('react');
-const types = React.PropTypes;
+const Actions = require('../actions/application_actions');
 
 class TodoAdder extends React.Component{
-  static propTypes = {
-    addTodoItem: types.func.isRequired
-  };
-
   constructor(props, context) {
     super(props, context);
     this.state = {todoItem: ''};
@@ -13,7 +9,7 @@ class TodoAdder extends React.Component{
 
   submit = e => {
     e.preventDefault();
-    this.props.addTodoItem(this.state.todoItem);
+    Actions.todoItemCreate(this.state.todoItem);
     this.setState({todoItem: ''});
   };
 

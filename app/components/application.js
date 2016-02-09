@@ -1,32 +1,32 @@
 require('babel-polyfill');
-const TodoAdder = require('./todo_adder');
-const TodoList = require('./todo_list');
 const Bootstrap = require('../bootstrap');
 const React = require('react');
+const TodoAdder = require('./todo_adder');
+const TodoList = require('./todo_list');
+const types = React.PropTypes;
+const useStore = require('./use_store');
 
 class Application extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {todoItems: []};
-  }
-
-  addTodoItem = todo => {
-    this.setState({todoItems: this.state.todoItems.concat(todo)});
+  static propTypes = {
+    store: types.object.isRequired
   };
 
-  render() {
-    const {todoItems} = this.state;
+  constructor(props, context) {
+    super(props, context);
+  }
 
+  render() {
+    const {todoItems} = this.props.store;
     return (
       <div className="pui-react-starter">
         <header>Things to do</header>
-        <TodoAdder addTodoItem={this.addTodoItem} />
+        <TodoAdder />
         <TodoList todoItems={todoItems}/>
       </div>
     );
   }
 }
 
-Bootstrap.init(Application);
+Bootstrap.init(useStore(Application));
 
-module.exports = Application;
+module.exports = useStore(Application);
