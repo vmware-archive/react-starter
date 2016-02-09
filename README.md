@@ -106,3 +106,19 @@ This will serve at [3000](http://localhost:3000). Note that `gulp foreman` will 
 The JavaScript is compiled using [Babel](https://babeljs.io/) and [Webpack](https://webpack.github.io/).
 By default, the entry point for your JavaScript is `app/components/application.js`.
 Webpack settings are controlled in `config/webpack.config.js`.
+
+#### Workflow
+
+We have provided an example flux implementation in this application.
+
+* A component calls an action
+* The action calls the dispatcher
+* The corresponding method in the dispatcher updates the global store
+
+#### Best Practices
+
+Important things to note about this implementation are:
+
+* Use the global store to keep track of data; do not store data in component state
+* Actions are meant to only do one thing; a dispatcher method may call multiple dispatcher methods to perform a larger task
+* Use the PUI Cursor; The [PUI Cursor](https://github.com/pivotal-cf/pui-cursor) node module allows the dispatcher to update the store immutably
