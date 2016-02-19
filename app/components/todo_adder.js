@@ -1,5 +1,5 @@
 const React = require('react');
-const Actions = require('../actions/application_actions');
+const Actions = require('../lib/actions');
 
 class TodoAdder extends React.Component{
   constructor(props, context) {
@@ -10,6 +10,7 @@ class TodoAdder extends React.Component{
   submit = e => {
     e.preventDefault();
     Actions.todoItemCreate(this.state.todoItem);
+    Actions.customAction('added' + this.state.todoItem);
     this.setState({todoItem: ''});
   };
 
