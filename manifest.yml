@@ -1,0 +1,6 @@
+---
+applications:
+  - name: react-starter
+    buildpack: staticfile_buildpack
+    path: public
+    memory: 64MB

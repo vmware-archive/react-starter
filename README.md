@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/pivotal-cf/react-starter.svg?branch=master)](https://travis-ci.org/pivotal-cf/react-starter)
 
 React Starter is a todoApp project with much of the tooling in place you would need for a fully-featured React application.
+[Click here](http://react-starter.cfapps.io/) to see it in action.
 
 ## Getting Started
 

@@ -1,0 +1,12 @@
+.env
+.idea
+/app/*
+/config/*
+/lib/*
+/logs/*
+/node_modules
+/scripts/*
+/server/*
+/spec/*
+/tasks/*
+/tmp/*
