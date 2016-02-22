@@ -8,7 +8,7 @@ const factories = require.context('../factories', true, /\.js$/);
 factories.keys().forEach(factories);
 
 const Cursor = require('pui-cursor');
-const Dispatcher = require('../../app/dispatchers/dispatcher');
+const Dispatcher = require('../../app/lib/dispatcher');
 const jQuery = require('jquery');
 const React = require('react');
 const ReactDOM = require('react-dom');

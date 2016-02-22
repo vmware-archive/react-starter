@@ -76,5 +76,8 @@
   "bugs": {
     "url": "https://github.com/pivotal-cf/pui-react-starter/issues"
   },
-  "homepage": "https://github.com/pivotal-cf/pui-react-starter"
+  "homepage": "https://github.com/pivotal-cf/pui-react-starter",
+  "dependencies": {
+    "fbjs": "^0.7.2"
+  }
 }

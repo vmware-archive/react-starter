@@ -1,9 +1,7 @@
-const Dispatcher = require('../dispatchers/dispatcher');
+const Dispatcher = require('../lib/dispatcher');
 
-const ApplicationActions = {
-  todoItemCreate(data) {
-    Dispatcher.dispatch({type: 'todoItemCreate', data});
+module.exports = {
+  customAction(message) {
+    return Dispatcher.dispatch({type: 'log', data: `log ${message}`});
   }
 };
-
-module.exports = ApplicationActions;
