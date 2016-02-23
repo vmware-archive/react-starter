@@ -6,6 +6,7 @@ const ReactDOM = require('react-dom');
 module.exports = {
   init(Entry, props = {}) {
     if (typeof document === 'undefined') return;
+    if (window.jasmine) return;
     ReactDOM.render(<Entry {...props}/>, root);
   }
 };

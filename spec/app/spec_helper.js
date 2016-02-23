@@ -7,8 +7,9 @@ require('./react_matchers');
 const factories = require.context('../factories', true, /\.js$/);
 factories.keys().forEach(factories);
 
+const Application = require('../../app/components/application');
 const Cursor = require('pui-cursor');
-const Dispatcher = require('../../app/dispatchers/dispatcher');
+const Dispatcher = require('../../app/lib/dispatcher');
 const jQuery = require('jquery');
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -24,6 +25,7 @@ Object.assign(global, {
 beforeEach(() => {
   $('body').find('#root').remove().end().append('<div id="root"/>');
   Cursor.async = false;
+  Application.reset();
   spyOn(Dispatcher, 'dispatch');
 
   jasmine.clock().install();

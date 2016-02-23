@@ -1,5 +1,5 @@
 const React = require('react');
-const Actions = require('../actions/application_actions');
+const Actions = require('../lib/actions');
 
 class TodoAdder extends React.Component{
   constructor(props, context) {

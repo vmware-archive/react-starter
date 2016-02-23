@@ -4,7 +4,7 @@ const React = require('react');
 const TodoAdder = require('./todo_adder');
 const TodoList = require('./todo_list');
 const types = React.PropTypes;
-const useStore = require('./use_store');
+const useStore = require('../lib/use_store');
 
 class Application extends React.Component {
   static propTypes = {
@@ -27,6 +27,17 @@ class Application extends React.Component {
   }
 }
 
-Bootstrap.init(useStore(Application));
+const ApplicationWithStore = useStore(Application,
+  {
+    store: require('../store'),
+    actions: [],
+    dispatcherHandlers: [require('../dispatchers/todo_dispatcher')],
+    /* eslint-disable no-console */
+    onDispatch: (event) => {console.info('dispatching event', event);}
+    /* eslint-enable no-console */
+  }
+);
 
-module.exports = useStore(Application);
+Bootstrap.init(ApplicationWithStore);
+
+module.exports = ApplicationWithStore;

@@ -20,6 +20,7 @@
     "director": "pivotal-cf/director.git#2181b2f9cbc1d128b77393c43c4398526397bade",
     "event-stream": "^3.3.2",
     "express": "^4.13.3",
+    "fbjs": "^0.7.2",
     "gulp": "^3.9.0",
     "gulp-clone": "^1.0.0",
     "gulp-cond": "^1.0.0",
