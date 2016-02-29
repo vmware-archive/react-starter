@@ -1,3 +1,5 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = function(env = null) {
   const webpackConfig = require(`./webpack/${env}`);
   const config = {
@@ -7,6 +9,8 @@ module.exports = function(env = null) {
     },
     module: {
       loaders: [
+        {test: [/\.svg$/, /\.png$/, /\.eot$/, /\.ttf$/, /\.woff$/], loader: 'file?name=[name]-[hash].[ext]'},
+        {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
         {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}
       ]
     },
@@ -14,7 +18,12 @@ module.exports = function(env = null) {
       filename: '[name].js',
       chunkFilename: '[id].js',
       pathinfo: true
-    }
+    },
+    plugins: [
+      new ExtractTextPlugin("components.css", {
+        allChunks: true
+      })
+    ]
   };
   return {...config, ...webpackConfig};
 };
