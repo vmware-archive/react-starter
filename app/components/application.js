@@ -4,7 +4,7 @@ const React = require('react');
 const TodoAdder = require('./todo_adder');
 const TodoList = require('./todo_list');
 const types = React.PropTypes;
-const useStore = require('../lib/use_store');
+const {useStore} = require('p-flux');
 
 class Application extends React.Component {
   static propTypes = {

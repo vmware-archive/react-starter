@@ -1,5 +1,5 @@
 const React = require('react');
-const Actions = require('../lib/actions');
+const {Actions} = require('p-flux');
 
 class TodoAdder extends React.Component{
   constructor(props, context) {

@@ -9,7 +9,7 @@ factories.keys().forEach(factories);
 
 const Application = require('../../app/components/application');
 const Cursor = require('pui-cursor');
-const Dispatcher = require('../../app/lib/dispatcher');
+const {Dispatcher} = require('p-flux');
 const jQuery = require('jquery');
 const React = require('react');
 const ReactDOM = require('react-dom');
