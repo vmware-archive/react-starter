@@ -116,10 +116,7 @@ We have provided an example flux implementation in this application.
 * The action calls the dispatcher
 * The corresponding method in the dispatcher updates the global store
 
-#### Best Practices
+#### Flux
 
-Important things to note about this implementation are:
-
-* Use the global store to keep track of data; do not store data in component state
-* Actions are meant to only do one thing; a dispatcher method may call multiple dispatcher methods to perform a larger task
-* Use the PUI Cursor; The [PUI Cursor](https://github.com/pivotal-cf/pui-cursor) node module allows the dispatcher to update the store immutably
+The flux patterns used in React starter have been extracted into [p-flux](https://github.com/pivotal-cf/p-flux).
+Look into p-flux documentation for best practices on storing and updating data.
