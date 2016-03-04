@@ -12,6 +12,7 @@
   },
 
   "globals": {
+    "MyReactStarter": true,
     "root": true,
     "Bluebird": true,
     "Dispatcher": true,
@@ -95,10 +96,15 @@
     "radix": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-no-undef": 2,
+    "react/jsx-uses-react": 2,
+    "react/no-is-mounted": 2,
+    "react/react-in-jsx-scope": 2,
+    "react/prefer-es6-class": 1,
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
     "react/prop-types": [2, {ignore: ['children', 'className', 'id', 'style']}],
     "react/self-closing-comp": 2,
+    "react/sort-comp": 2,
     "react/wrap-multilines": 2,
     "semi": 2,
     "strict": 0,

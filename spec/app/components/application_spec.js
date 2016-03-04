@@ -7,7 +7,8 @@ describe('Application', () => {
     const Application = require('../../../app/components/application');
     TodoList = require('../../../app/components/todo_list');
     spyOn(TodoList.prototype, 'render').and.callThrough();
-    ReactDOM.render(<Application Dispatcher={Dispatcher}/>, root);
+    const config = {title: 'title'};
+    ReactDOM.render(<Application {...{config, Dispatcher}}/>, root);
   });
 
   it('has a TodoAdder', () => {
@@ -16,5 +17,9 @@ describe('Application', () => {
 
   it('has a TodoList', () => {
     expect('.todo-list').toExist();
+  });
+
+  it('has a title', () => {
+    expect('.title').toHaveText('title');
   });
 });

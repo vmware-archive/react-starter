@@ -8,19 +8,17 @@ const {useStore} = require('p-flux');
 
 class Application extends React.Component {
   static propTypes = {
+    config: types.object.isRequired,
     store: types.object.isRequired
   };
 
-  constructor(props, context) {
-    super(props, context);
-  }
-
   render() {
-    const {todoItems} = this.props.store;
+    const {config: {title}, store: {todoItems}} = this.props;
     return (
       <div className="pui-react-starter">
+        <header className="title">{title}</header>
         <header>Things to do</header>
-        <TodoAdder />
+        <TodoAdder/>
         <TodoList todoItems={todoItems}/>
       </div>
     );

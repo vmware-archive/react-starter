@@ -7,7 +7,6 @@ require('./react_matchers');
 const factories = require.context('../factories', true, /\.js$/);
 factories.keys().forEach(factories);
 
-const Application = require('../../app/components/application');
 const Cursor = require('pui-cursor');
 const {Dispatcher} = require('p-flux');
 const jQuery = require('jquery');
@@ -20,6 +19,7 @@ beforeAll(() => {
   globals = {
     Dispatcher,
     jQuery,
+    MyReactStarter: {},
     React,
     ReactDOM,
     $: jQuery,
@@ -33,8 +33,11 @@ afterAll(() => {
 });
 
 beforeEach(() => {
+  global.MyReactStarter = {config: {}};
+
   $('body').find('#root').remove().end().append('<div id="root"/>');
   Cursor.async = false;
+  const Application = require('../../app/components/application');
   Application.reset();
 
   spyOn(require('../../app/bootstrap'), 'init');

@@ -1,7 +1,16 @@
 const React = require('react');
 const {Factory} = require('rosie');
 
-Object.assign(global, {
-  Factory,
-  React
+let globals;
+
+beforeAll(() => {
+  globals = {
+    Factory,
+    React
+  };
+  Object.assign(global, globals);
+});
+
+afterAll(() => {
+  Object.keys(globals).forEach(key => delete global[key]);
 });

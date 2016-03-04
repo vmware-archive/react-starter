@@ -1,10 +1,11 @@
 {
+  "globalNamespace": "MyReactStarter",
   "title": "My React Starter",
   "scripts": [
     "application.js"
   ],
   "stylesheets": [
-    "application.css",
-    "components.css"
+    "components.css",
+    "application.css"
   ]
 }
