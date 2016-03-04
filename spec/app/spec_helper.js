@@ -14,18 +14,30 @@ const jQuery = require('jquery');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-Object.assign(global, {
-  Dispatcher,
-  jQuery,
-  React,
-  ReactDOM,
-  $: jQuery
-}, require('./support/react_helper'));
+let globals;
+
+beforeAll(() => {
+  globals = {
+    Dispatcher,
+    jQuery,
+    React,
+    ReactDOM,
+    $: jQuery,
+    ...require('./support/react_helper')
+  };
+  Object.assign(global, globals);
+});
+
+afterAll(() => {
+  Object.keys(globals).forEach(key => delete global[key]);
+});
 
 beforeEach(() => {
   $('body').find('#root').remove().end().append('<div id="root"/>');
   Cursor.async = false;
   Application.reset();
+
+  spyOn(require('../../app/bootstrap'), 'init');
   spyOn(Dispatcher, 'dispatch');
 
   jasmine.clock().install();
