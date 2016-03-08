@@ -120,3 +120,17 @@ We have provided an example flux implementation in this application.
 
 The flux patterns used in React starter have been extracted into [p-flux](https://github.com/pivotal-cf/p-flux).
 Look into p-flux documentation for best practices on storing and updating data.
+
+#### Router
+
+We have provided an example router in this application. The router is using [Grapnel](https://github.com/bytecipher/grapnel).
+
+Router callbacks should be responsible for changing the page. 
+This can accomplished by storing a page component in the router, as in this example. 
+If it fits your app better, there are alternate methods involving storing the name of the page in the store.
+Router callbacks also have access to props and Actions to save route params in the store. Examples
+are provided in the `router.js`.
+ 
+We recommend having a `setRoute` dispatch event for easy debugging. We have provided an example in the main dispatcher.
+
+We have also provided a mock router for use in test. Example router tests are provided.

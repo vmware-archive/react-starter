@@ -1,4 +1,4 @@
 const Factory = require('rosie').Factory;
 
-Factory.define('person')
+Factory.define('user')
   .sequence('name', id => `Bob ${id}`);

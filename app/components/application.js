@@ -1,41 +1,44 @@
 require('babel-polyfill');
 const Bootstrap = require('../bootstrap');
 const React = require('react');
-const TodoAdder = require('./todo_adder');
-const TodoList = require('./todo_list');
 const types = React.PropTypes;
 const {useStore} = require('p-flux');
+const {useRouter} = require('./use_router');
+const Router = require('./router');
 
 class Application extends React.Component {
   static propTypes = {
     config: types.object.isRequired,
-    store: types.object.isRequired
+    store: types.object.isRequired,
+    router: types.oneOfType([types.object, types.func])
   };
 
   render() {
-    const {config: {title}, store: {todoItems}} = this.props;
+    const {config, store, router} = this.props;
     return (
       <div className="pui-react-starter">
-        <header className="title">{title}</header>
-        <header>Things to do</header>
-        <TodoAdder/>
-        <TodoList todoItems={todoItems}/>
+        <a href="todoList" onClick={e => {e.preventDefault(); router.navigate('/todoList');}}>Todo List!</a>
+        <br/>
+        <a href="createNewUser" onClick={e => {e.preventDefault(); router.navigate('/users/new');}}>Create New User</a>
+        <br/>
+        <a href="userList" onClick={e => {e.preventDefault(); router.navigate('/users/list');}}> All Users</a>
+        <Router {...{router, config, ...store}}/>
       </div>
     );
   }
 }
 
-const ApplicationWithStore = useStore(Application,
+const EnhancedApplication = useStore(useRouter(Application),
   {
     store: require('../store'),
     actions: [],
-    dispatcherHandlers: [require('../dispatchers/todo_dispatcher')],
+    dispatcherHandlers: [require('../dispatchers/main_dispatcher')],
     /* eslint-disable no-console */
     onDispatch: (event) => {console.info('dispatching event', event);}
     /* eslint-enable no-console */
   }
 );
 
-Bootstrap.init(ApplicationWithStore);
+Bootstrap.init(EnhancedApplication);
 
-module.exports = ApplicationWithStore;
+module.exports = EnhancedApplication;

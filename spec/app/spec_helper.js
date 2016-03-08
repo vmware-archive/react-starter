@@ -10,8 +10,10 @@ factories.keys().forEach(factories);
 const Cursor = require('pui-cursor');
 const {Dispatcher} = require('p-flux');
 const jQuery = require('jquery');
+const MockRouter = require('./support/mock_router');
 const React = require('react');
 const ReactDOM = require('react-dom');
+const UseRouter = require('../../app/components/use_router');
 
 let globals;
 
@@ -37,11 +39,14 @@ beforeEach(() => {
 
   $('body').find('#root').remove().end().append('<div id="root"/>');
   Cursor.async = false;
+  spyOn(require('../../app/bootstrap'), 'init');
+
   const Application = require('../../app/components/application');
   Application.reset();
 
-  spyOn(require('../../app/bootstrap'), 'init');
   spyOn(Dispatcher, 'dispatch');
+
+  MockRouter.install(UseRouter);
 
   jasmine.clock().install();
   jasmine.Ajax.install();
@@ -58,6 +63,7 @@ beforeEach(() => {
 afterEach(() => {
   ReactDOM.unmountComponentAtNode(root);
   Dispatcher.reset();
+  MockRouter.uninstall();
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();
 });
