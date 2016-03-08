@@ -62,7 +62,7 @@ this is where `toHaveText` is defined.
 React starter sets up Factories using [Rosie](https://github.com/rosiejs/rosie).
 Factories are defined in the `spec/factories` folder.
 The easiest way to create a new factory is to create a new file in `spec/factories`.
-See `spec/factories/person.js` as an example.
+See `spec/factories/user.js` as an example.
 
 
 ### Integration Testing
@@ -133,4 +133,6 @@ are provided in the `router.js`.
  
 We recommend having a `setRoute` dispatch event for easy debugging. We have provided an example in the main dispatcher.
 
-We have also provided a mock router for use in test. Example router tests are provided.
+We have also provided a mock router for use in test, `spec/app/support/mock_router.js`.
+The mock router should is installed in `spec_helper.js`. 
+If you do not mock the router, it will change your browser url while running Jasmine.
