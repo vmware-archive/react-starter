@@ -5,6 +5,13 @@ const MainDispatcher = {
   todoItemCreate({data}) {
     this.$store.refine('todoItems').push(data);
   },
+  slovenlyItemCreate({data}) {
+    const self = this;
+    setImmediate(() => self.dispatch({type: 'todoItemCreate', data}));
+  },
+  globalItemCreate({data}) {
+    setImmediate(() => Dispatcher.dispatch({type: 'todoItemCreate', data}));
+  },
   userCreate({data}) {
     this.$store.refine('users').push(data);
   },
