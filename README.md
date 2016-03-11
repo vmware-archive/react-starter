@@ -126,13 +126,11 @@ Look into p-flux documentation for best practices on storing and updating data.
 We have provided an example router in this application. The router is using [Grapnel](https://github.com/bytecipher/grapnel).
 
 Router callbacks should be responsible for changing the page. 
-This can accomplished by storing a page component in the router, as in this example. 
-If it fits your app better, there are alternate methods involving storing the name of the page in the store.
-Router callbacks also have access to props and Actions to save route params in the store. Examples
-are provided in the `router.js`.
+This can be accomplished by storing a page component in the router, as in `app/components/router.js`.
+Router callbacks also have access to props and Actions to save route params in the store.
  
-We recommend having a `setRoute` dispatch event for easy debugging. We have provided an example in the main dispatcher.
+We recommend having a `setRoute` dispatch event for easy debugging. We have provided an example in `app/dispatchers/main_dispatcher.js`.
 
-We have also provided a mock router for use in test, `spec/app/support/mock_router.js`.
-The mock router should is installed in `spec_helper.js`. 
-If you do not mock the router, it will change your browser url while running Jasmine.
+We have also provided a mock router for use in test in `spec/app/support/mock_router.js`.
+The mock router is installed in `spec/app/spec_helper.js`.
+If you do not mock the router, it will change your browser URL while running Jasmine.
