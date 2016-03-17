@@ -24,10 +24,7 @@ module.exports = {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
-    new NoErrorsPlugin(),
-    new ExtractTextPlugin("components.css", {
-      allChunks: true
-    })
+    new NoErrorsPlugin()
   ],
   resolve: {
     alias: {

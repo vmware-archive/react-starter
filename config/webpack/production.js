@@ -1,5 +1,4 @@
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const NoErrorsPlugin = require('webpack/lib/NoErrorsPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
@@ -15,10 +14,7 @@ module.exports = {
       }
     }),
     new NoErrorsPlugin(),
-    new UglifyJsPlugin({compress: {warnings: false}}),
-    new ExtractTextPlugin("components.css", {
-      allChunks: true
-    })
+    new UglifyJsPlugin({compress: {warnings: false}})
   ],
   resolve: {
     alias: {
