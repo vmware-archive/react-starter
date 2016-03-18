@@ -1,4 +1,4 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(env = null) {
   const {plugins = [], ...webpackConfig} = require(`./webpack/${env}`);
@@ -9,7 +9,7 @@ module.exports = function(env = null) {
     },
     module: {
       loaders: [
-        {test: [/\.svg$/, /\.png$/, /\.eot$/, /\.ttf$/, /\.woff$/], include: /node_modules/, loader: 'file?name=[name]-[hash].[ext]'},
+        {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.jpg(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/], include: /node_modules/, loader: 'file?name=[name]-[hash].[ext]'},
         {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
         {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}
       ]
@@ -21,9 +21,7 @@ module.exports = function(env = null) {
     },
     plugins: [
       ...plugins,
-      new ExtractTextPlugin("components.css", {
-        allChunks: true
-      })
+      new ExtractTextPlugin('components.css')
     ]
   };
   return {...config, ...webpackConfig};

@@ -1,6 +1,6 @@
 const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 const NoErrorsPlugin = require('webpack/lib/NoErrorsPlugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -10,7 +10,7 @@ module.exports = {
   externals: null,
   module: {
     loaders: [
-      {test: [/\.svg$/, /\.png$/, /\.eot$/, /\.ttf$/, /\.woff$/], loader: 'file?name=[name]-[hash].[ext]'},
+      {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.jpg(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/], include: /node_modules/, loader: 'file?name=[name]-[hash].[ext]'},
       {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
       {test: /\.jsx?$/, exclude: /node_modules/, loader: 'react-hot'},
       {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}

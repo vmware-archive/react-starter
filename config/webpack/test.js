@@ -1,3 +1,4 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NoErrorsPlugin = require('webpack/lib/NoErrorsPlugin');
 
 module.exports = {
@@ -6,6 +7,8 @@ module.exports = {
   externals: null,
   module: {
     loaders: [
+      {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.jpg(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/], include: /node_modules/, loader: 'url?name=[name]-[hash].[ext]'},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel?sourceMaps=true'}
     ]
   },
