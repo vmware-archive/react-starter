@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const path = require('path');
 const plugins = require('gulp-load-plugins')();
 const {spawn} = require('child_process');
 const waitUntilListening = require('strong-wait-till-listening');
@@ -10,10 +9,6 @@ function restartServer() {
 }
 function killServer() {
   if (node) return node.kill();
-}
-
-function killDevServer() {
-  plugins.connect.serverClose();
 }
 
 process.on('exit', restartServer);
@@ -37,11 +32,6 @@ gulp.task('watch-server', function() {
   gulp.watch(['server/**/*.js', 'helpers/**/*.js', 'lib/**/*.js', 'config/*.json'], ['server']);
 });
 
-gulp.task('dev-server', ['assets-html', 'assets-config'], function() {
-  const port = process.env.PORT || 3000;
-  plugins.connect.server({ root: 'public', fallback: path.join('public', 'index.html'), port});
-});
+gulp.task('s', ['server', 'watch-server', 'assets-html']);
 
-gulp.task('s', ['assets-server', 'dev-server']);
-
-module.exports = {restartServer, killDevServer, killServer};
+module.exports = {restartServer, killServer};

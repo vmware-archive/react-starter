@@ -1,5 +1,4 @@
 {
-  "assetHost": "localhost",
-  "assetPort": 3001,
-  "hotModule": true
+  "hotModule": true,
+  "useWebpackDevMiddleware": true
 }

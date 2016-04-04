@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
 const thenify = require('thenify');
 const runSequence = require('run-sequence');
-const {killDevServer} = require('../tasks/server');
+const {killServer} = require('../tasks/server');
 
 const getPort = thenify(require('portfinder').getPort);
 
@@ -12,13 +12,13 @@ function buildSequence(env) {
   return {
     sequence: compact([
       'assets',
-      'dev-server',
+      'server',
       'wait-for-server',
       'jasmine-integration'
     ]),
     cleanup: done => () => {
       Object.assign(process.env, {NODE_ENV, PORT});
-      killDevServer();
+      killServer();
       done();
     },
     env
