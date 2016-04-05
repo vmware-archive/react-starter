@@ -60,7 +60,7 @@
     "mock-promises": "^0.6.0",
     "npm": "^3.7.5",
     "p-flux": "^1.0.0",
-    "phantomjs-prebuilt": "^2.1.7",
+    "phantomjs": "^1.9.8",
     "portfinder": "^1.0.2",
     "pui-cursor": "^2.0.5",
     "pui-react-tools": "^1.0.0",
