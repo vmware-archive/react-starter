@@ -6,15 +6,12 @@ const {useWebpackDevMiddleware} = config;
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
 if (useWebpackDevMiddleware) {
   const webpackHotMiddleware = require('pui-react-tools/middleware/webpack');
   app.use(...webpackHotMiddleware());
+  app.get('*', webpackHotMiddleware.url('/index.html'));
 }
-
-app.use(express.static(path.join(__dirname, '..', 'public')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-});
 
 module.exports = app;

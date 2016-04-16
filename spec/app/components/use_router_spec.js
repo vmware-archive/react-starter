@@ -15,6 +15,9 @@ describe('#useRouter', () => {
         </div>
       );
     };
+    Application.propTypes = {
+      router: React.PropTypes.func.isRequired
+    };
 
     const TestRouter = useRouter(Application);
     ReactDOM.render(<TestRouter/>, root);

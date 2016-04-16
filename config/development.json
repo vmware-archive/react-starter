@@ -1,4 +1,5 @@
 {
+  "stylesheets": [],
   "hotModule": true,
   "useWebpackDevMiddleware": true
 }

@@ -7,7 +7,7 @@ class TodoPage extends React.Component {
   static propTypes = {
     config: types.object,
     todoItems: types.array
-  }
+  };
 
   render() {
     const {config: {title}, todoItems} = this.props;
