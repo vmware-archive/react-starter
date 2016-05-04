@@ -5,7 +5,6 @@
     "application.js"
   ],
   "stylesheets": [
-    "components.css",
     "application.css"
   ]
 }
