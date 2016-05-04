@@ -1,5 +1,10 @@
 module.exports = {
   webpack: {
-    integration: {devtool: 'source-map'}
+    devtool: 'cheap-module-source-map',
+    entry: {
+      application: ['./app/components/application.js', 'webpack-hot-middleware/client']
+    },
+    integration: { devtool: 'source-map' }
+
   }
 };
