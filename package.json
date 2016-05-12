@@ -48,6 +48,7 @@
     "gulp-util": "^3.0.7",
     "gulp-wait": "0.0.2",
     "gulp-watch": "^4.3.5",
+    "invariant": "^2.2.1",
     "isomorphic-fetch": "^2.2.1",
     "jasmine-ajax": "^3.2.0",
     "jasmine_dom_matchers": "^1.4.0",
