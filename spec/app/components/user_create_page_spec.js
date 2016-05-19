@@ -13,11 +13,11 @@ describe('UserCreatePage', () => {
     });
 
     it('creates a new user', () => {
-      expect(Dispatcher.dispatch).toHaveBeenCalledWith({type: 'userCreate', data: {name: 'Alice'}});
+      expect('userCreate').toHaveBeenDispatchedWith({data: {name: 'Alice'}});
     });
 
     it('navigates to the user list page', () => {
-      expect(Dispatcher.dispatch).toHaveBeenCalledWith({type: 'setRoute', data: '/users/list'});
+      expect('setRoute').toHaveBeenDispatchedWith({data: '/users/list'});
     });
   });
 });

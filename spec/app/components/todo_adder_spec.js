@@ -13,7 +13,7 @@ describe('TodoAdder', () => {
     });
 
     it('adds the todoItem', () => {
-      expect(Dispatcher.dispatch).toHaveBeenCalledWith({type: 'todoItemCreate', data: 'do this thing'});
+      expect('todoItemCreate').toHaveBeenDispatchedWith({data: 'do this thing'});
     });
 
     it('clears out the input text', () => {
