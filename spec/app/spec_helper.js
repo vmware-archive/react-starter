@@ -1,15 +1,21 @@
 require('babel-polyfill');
 require('jasmine-ajax');
 require('jasmine_dom_matchers');
+require('../support/bluebird');
 require('../spec_helper');
-require('./react_matchers');
+require('pivotal-js-jasmine-matchers');
+require('./support/dispatcher_matchers');
+
 
 const factories = require.context('../factories', true, /\.js$/);
 factories.keys().forEach(factories);
 
 const Cursor = require('pui-cursor');
+const Deferred = require('../support/deferred');
 const {Dispatcher} = require('p-flux');
 const jQuery = require('jquery');
+const MockFetch = require('../support/mock_fetch');
+const MockPromises = require('mock-promises');
 const MockRouter = require('./support/mock_router');
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -17,10 +23,14 @@ const UseRouter = require('../../app/components/use_router');
 
 let globals;
 
+MockFetch.install();
+
 beforeAll(() => {
   globals = {
+    Deferred,
     Dispatcher,
     jQuery,
+    MockPromises,
     MyReactStarter: {},
     React,
     ReactDOM,
@@ -32,6 +42,7 @@ beforeAll(() => {
 
 afterAll(() => {
   Object.keys(globals).forEach(key => delete global[key]);
+  MockFetch.uninstall();
 });
 
 beforeEach(() => {
@@ -46,6 +57,7 @@ beforeEach(() => {
 
   spyOn(Dispatcher, 'dispatch');
 
+  MockPromises.install(Promise);
   MockRouter.install(UseRouter);
 
   jasmine.clock().install();
@@ -63,6 +75,7 @@ beforeEach(() => {
 afterEach(() => {
   ReactDOM.unmountComponentAtNode(root);
   Dispatcher.reset();
+  MockPromises.uninstall();
   MockRouter.uninstall();
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();

@@ -1,5 +1,6 @@
 const React = require('react');
 const types = require('react').PropTypes;
+const ApiPage = require('./api_page');
 const UserCreatePage = require('./user_create_page');
 const UserListPage = require('./user_list_page');
 const TodoPage = require('./todo_page');
@@ -23,6 +24,7 @@ function toFlattenedRoutes(routesHash) {
 const routes = {
   '/': 'todoList',
   '/todoList': 'todoList',
+  '/apiPage': 'apiPage',
   '/users': {
     '/list': 'showUsers',
     '/new': 'createUser'
@@ -46,6 +48,11 @@ class Router extends React.Component {
       router.get(path, this[callbackName]);
     });
   }
+
+  apiPage = () => {
+    this.setState({Page: ApiPage});
+  };
+
   todoList = () => {
     this.setState({Page: TodoPage});
   };
@@ -57,7 +64,6 @@ class Router extends React.Component {
   createUser = () => {
     this.setState({Page: UserCreatePage});
   };
-
 
   render() {
     const {Page} = this.state;

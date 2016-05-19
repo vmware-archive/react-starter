@@ -17,6 +17,7 @@
     "Bluebird": true,
     "Dispatcher": true,
     "jQuery": true,
+    "MockPromises": true,
     "React": true,
     "ReactDOM": true,
     "setProps": true,
