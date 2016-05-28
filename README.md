@@ -7,7 +7,13 @@ React Starter is a todoApp project with much of the tooling in place you would n
 
 ## Getting Started
 
-First, make sure you have node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
+First, make sure you have:
+
+* Node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
+* Npm version 3+
+
+If either of these is an earlier version, you will likely see errors when you run the code. 
+If you have installed and then realize you need to change either of these, you will need to `rm -rf node_modules` and `npm install` to make sure dependencies are correctly updated and installed.
 
 ```
 git clone git@github.com:pivotal-cf/react-starter.git && cd react-starter
