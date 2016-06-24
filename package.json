@@ -4,15 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "babel-polyfill": "^6.6.1",
-    "event-stream": "^3.3.2",
-    "express": "^4.13.4",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash.camelcase": "^4.1.0",
-    "lodash.debounce": "^4.0.3",
-    "recluster": "^0.4.5",
-    "thenify": "^3.2.0",
-    "url-join": "1.1.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
