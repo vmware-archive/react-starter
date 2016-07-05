@@ -6,5 +6,6 @@
   ],
   "stylesheets": [
     "application.css"
-  ]
+  ],
+  "useRevManifest": false
 }
