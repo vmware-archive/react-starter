@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: react-starter
+  - name: youmightnotneedgrids
     buildpack: staticfile_buildpack
     path: public
     memory: 64MB

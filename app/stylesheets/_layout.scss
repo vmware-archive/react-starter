@@ -2,3 +2,27 @@
   padding: 20px;
   color: darkblue;
 }
+
+.flex-container {
+  display: flex;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.grid-markings {
+  background-color: lavender;
+  border: 1px solid purple;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
