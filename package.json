@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.6.4",

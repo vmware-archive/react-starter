@@ -5,6 +5,9 @@
     "application.js"
   ],
   "stylesheets": [
-    "application.css"
-  ]
+    "application.css",
+    "components.css"
+  ],
+  "useRevManifest": false
 }
+

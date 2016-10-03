@@ -1,6 +1,5 @@
 ---
 applications:
   - name: youmightnotneedgrids
-    buildpack: staticfile_buildpack
     path: public
     memory: 64MB
