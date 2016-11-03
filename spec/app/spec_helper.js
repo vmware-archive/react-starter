@@ -31,6 +31,7 @@ beforeAll(() => {
     Dispatcher,
     jQuery,
     MockPromises,
+    MockRouter,
     MyReactStarter: {},
     React,
     ReactDOM,

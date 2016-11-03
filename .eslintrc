@@ -18,6 +18,7 @@
     "Dispatcher": true,
     "jQuery": true,
     "MockPromises": true,
+    "MockRouter": true,
     "React": true,
     "ReactDOM": true,
     "setProps": true,
