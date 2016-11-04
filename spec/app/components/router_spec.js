@@ -11,6 +11,16 @@ describe('Router', () => {
     ReactDOM.render(<Router {...routerProps}/>, root);
   });
 
+  describe('/', () => {
+    beforeEach(() => {
+      MockRouter.navigate('/');
+    });
+
+    it('renders a todo list', () => {
+      expect('.todo-list').toExist();
+    });
+  });
+
   describe('/todoList', () => {
     beforeEach(() => {
       MockRouter.navigate('/todoList');
@@ -28,6 +38,26 @@ describe('Router', () => {
 
     it('renders a todo list', () => {
       expect('.api-page').toExist();
+    });
+  });
+
+  describe('/users/list', () => {
+    beforeEach(() => {
+      MockRouter.navigate('/users/list');
+    });
+
+    it('renders the user list page', () => {
+      expect('.user-list-page').toExist();
+    });
+  });
+
+  describe('/users/new', () => {
+    beforeEach(() => {
+      MockRouter.navigate('/users/new');
+    });
+
+    it('renders the new user page', () => {
+      expect('.user-create-page').toExist();
     });
   });
 });

@@ -106,7 +106,7 @@
     "react/prop-types": [2, {ignore: ['children', 'className', 'id', 'style']}],
     "react/self-closing-comp": 2,
     "react/sort-comp": 2,
-    "react/wrap-multilines": 2,
+    "react/jsx-wrap-multilines": 2,
     "semi": 2,
     "strict": 0,
     "vars-on-top": 0,

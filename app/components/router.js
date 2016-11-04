@@ -21,7 +21,7 @@ function toFlattenedRoutes(routesHash) {
   }, {});
 }
 
-const routes = {
+const ROUTES = {
   '/': 'todoList',
   '/todoList': 'todoList',
   '/apiPage': 'apiPage',
@@ -31,6 +31,8 @@ const routes = {
   }
 };
 
+const PAGES = { ApiPage, UserCreatePage, UserListPage, TodoPage };
+
 class Router extends React.Component {
   static propTypes = {
     router: types.oneOfType([types.object, types.func])
@@ -39,34 +41,35 @@ class Router extends React.Component {
   constructor(props, context) {
     super(props, context);
     const {state} = this;
-    this.state = {...state, Page: TodoPage };
+    this.state = {...state, pageName: 'TodoPage' };
   }
 
   componentDidMount() {
     const {router} = this.props;
-    Object.entries(toFlattenedRoutes(routes)).map(([path, callbackName]) => {
+    Object.entries(toFlattenedRoutes(ROUTES)).map(([path, callbackName]) => {
       router.get(path, this[callbackName]);
     });
   }
 
   apiPage = () => {
-    this.setState({Page: ApiPage});
+    this.setState({pageName: 'ApiPage'});
   };
 
   todoList = () => {
-    this.setState({Page: TodoPage});
+    this.setState({pageName: 'TodoPage'});
   };
 
   showUsers = () => {
-    this.setState({Page: UserListPage});
+    this.setState({pageName: 'UserListPage'});
   };
 
   createUser = () => {
-    this.setState({Page: UserCreatePage});
+    this.setState({pageName: 'UserCreatePage'});
   };
 
   render() {
-    const {Page} = this.state;
+    const {pageName} = this.state;
+    const Page = PAGES[pageName];
     return (
       <Page {...this.props}/>
     );
