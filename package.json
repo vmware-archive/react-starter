@@ -53,7 +53,7 @@
     "pivotal-js-jasmine-matchers": "0.0.18",
     "portfinder": "^1.0.9",
     "pui-cursor": "^3.0.4",
-    "pui-react-tools": "^2.0.0",
+    "pui-react-tools": "^2.0.3",
     "qs": "^5.2.0",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
