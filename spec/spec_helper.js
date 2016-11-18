@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const React = require('react');
 const {Factory} = require('rosie');
 

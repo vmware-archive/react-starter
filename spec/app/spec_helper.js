@@ -1,4 +1,3 @@
-require('babel-polyfill');
 require('jasmine-ajax');
 require('jasmine_dom_matchers');
 require('../support/bluebird');
