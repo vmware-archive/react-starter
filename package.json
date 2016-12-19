@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -53,7 +52,7 @@
     "pivotal-js-jasmine-matchers": "0.0.18",
     "portfinder": "^1.0.9",
     "pui-cursor": "^3.0.4",
-    "pui-react-tools": "^2.0.3",
+    "pui-react-tools": "../pui-react-tools/dist",
     "qs": "^5.2.0",
     "react": "~15.4.0",
     "react-addons-test-utils": "~15.4.0",
