@@ -1,0 +1,18 @@
+const development = require('pui-react-tools/webpack/development');
+
+module.exports = {
+  webpack: {
+    development: {
+      entry: {
+        application: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './app/index.js']
+      },
+      plugins: development.plugins
+    },
+    integration: {
+      devtool: 'source-map',
+      entry: {
+        application: './app/index.js'
+      }
+    }
+  }
+};

@@ -50,7 +50,6 @@ beforeEach(() => {
 
   $('body').find('#root').remove().end().append('<div id="root"/>');
   Cursor.async = false;
-  spyOn(require('../../app/bootstrap'), 'init');
 
   const Application = require('../../app/components/application');
   Application.reset();

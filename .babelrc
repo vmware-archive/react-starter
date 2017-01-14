@@ -1,10 +1,12 @@
 {
   "env": {
     "development": {
-      "plugins": ["react-hot-loader/babel"]
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     }
   },
-  "presets": ["es2015-loose", "react", "stage-0"],
+  "presets": [["es2015", {"loose": true}], "react", "stage-0"],
   "plugins": [
     "transform-object-assign",
     "transform-react-display-name"

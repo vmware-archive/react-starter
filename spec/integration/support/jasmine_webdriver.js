@@ -6,7 +6,7 @@ const webdriverio = require('webdriverio');
 const privates = new WeakMap();
 
 class JasmineWebdriver {
-  constructor({browser = 'firefox', timeout = 500} = {}) {
+  constructor({browser = 'phantomjs', timeout = 500} = {}) {
     privates.set(this, {processes: [], desiredCapabilities: {browserName: browser}, timeout});
   }
 

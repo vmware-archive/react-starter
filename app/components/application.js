@@ -1,10 +1,13 @@
 require('babel-polyfill');
-const Bootstrap = require('../bootstrap');
 const React = require('react');
 const types = React.PropTypes;
 const {useStore} = require('p-flux');
 const {useRouter} = require('./use_router');
 const Router = require('./router');
+
+if (typeof document !== 'undefined') {
+  require('../stylesheets/application.scss');
+}
 
 class Application extends React.Component {
   static propTypes = {
@@ -43,7 +46,5 @@ const EnhancedApplication = useStore(useRouter(Application),
     /* eslint-enable no-console */
   }
 );
-
-Bootstrap.init(EnhancedApplication);
 
 module.exports = EnhancedApplication;
