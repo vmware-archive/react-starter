@@ -1,7 +1,9 @@
+const base = require('pui-react-tools/webpack/base');
 const development = require('pui-react-tools/webpack/development');
 
 module.exports = {
   webpack: {
+    base: {...base, entry: {application: './app/index.js'}},
     development: {
       entry: {
         application: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './app/index.js']
@@ -10,9 +12,6 @@ module.exports = {
     },
     integration: {
       devtool: 'source-map',
-      entry: {
-        application: './app/index.js'
-      }
     }
   }
 };
