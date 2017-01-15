@@ -8,6 +8,7 @@
   },
   "presets": [["es2015", {"loose": true}], "react", "stage-0"],
   "plugins": [
+    "add-module-exports",
     "transform-object-assign",
     "transform-react-display-name"
   ]
