@@ -3845,6 +3845,13 @@ jasmine-ajax@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jasmine-ajax/-/jasmine-ajax-3.3.1.tgz#f8cad9fd49dfd44f3cf798d36f4e857d125c75c5"
 
+jasmine-async-suite@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/jasmine-async-suite/-/jasmine-async-suite-0.0.7.tgz#d85d8afffffc87f7bd3db189884b78f942f6cc5a"
+  dependencies:
+    invariant "^2.2.1"
+    lodash.isfunction "^3.0.8"
+
 jasmine-core@^2.4.1, jasmine-core@~2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-2.5.2.tgz#6f61bd79061e27f43e6f9355e44b3c6cab6ff297"
@@ -4270,6 +4277,10 @@ lodash.isarray@^3.0.0:
 lodash.isempty@^4.2.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+
+lodash.isfunction@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.8.tgz#4db709fc81bc4a8fd7127a458a5346c5cdce2c6b"
 
 lodash.isobject@^3.0.2:
   version "3.0.2"

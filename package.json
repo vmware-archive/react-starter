@@ -41,6 +41,7 @@
     "invariant": "^2.2.1",
     "isomorphic-fetch": "^2.2.1",
     "jasmine-ajax": "^3.2.0",
+    "jasmine-async-suite": "^0.0.7",
     "jasmine_dom_matchers": "^1.4.0",
     "jquery": "^3.1.1",
     "lodash.camelcase": "^4.3.0",
