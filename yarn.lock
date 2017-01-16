@@ -5413,6 +5413,12 @@ pivotal-js-jasmine-matchers@0.0.18:
     jasmine_dom_matchers "^1.4.0"
     qs "^5.2.0"
 
+pivotal-js-react-test-helpers@^0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.0.20.tgz#b086ccb70393fde46f7e2468a08ec15f24ecc631"
+  dependencies:
+    react-addons-test-utils ">=0.14.7"
+
 pkg-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"
@@ -5942,7 +5948,7 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-react-addons-test-utils@>=14.8.0, react-addons-test-utils@~15.4.0:
+react-addons-test-utils@>=0.14.7, react-addons-test-utils@>=14.8.0, react-addons-test-utils@~15.4.0:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.4.2.tgz#93bcaa718fcae7360d42e8fb1c09756cc36302a2"
   dependencies:

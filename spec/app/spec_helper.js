@@ -35,7 +35,7 @@ beforeAll(() => {
     React,
     ReactDOM,
     $: jQuery,
-    ...require('./support/react_helper')
+    ...require('pivotal-js-react-test-helpers')
   };
   Object.assign(global, globals);
 });
