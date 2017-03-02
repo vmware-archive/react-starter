@@ -42,7 +42,7 @@ beforeEach(() => {
     toHaveBeenDispatched(){
       return {
         compare(actual){
-          const pass = Dispatcher.dispatch.calls.all().find((dispatchCall) => {
+          const pass = Dispatcher.dispatch.calls.all().some((dispatchCall) => {
             return dispatchCall.args[0].type === actual;
           });
 
