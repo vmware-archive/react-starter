@@ -10,3 +10,8 @@ cache:
   yarn: true
   directories:
     - node_modules
+addons:
+  firefox: latest
+  apt:
+    packages:
+      - oracle-java8-set-default
