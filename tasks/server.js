@@ -32,6 +32,6 @@ gulp.task('watch-server', function() {
   gulp.watch(['server/**/*.js', 'helpers/**/*.js', 'lib/**/*.js', 'config/*.json'], ['server']);
 });
 
-gulp.task('s', ['server', 'watch-server', 'assets-config']);
+gulp.task('s', ['server', 'watch-server']);
 
 module.exports = {restartServer, killServer};

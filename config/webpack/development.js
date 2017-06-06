@@ -30,7 +30,7 @@ export default function() {
     output: {filename: '[name].js', chunkFilename: '[id].js', pathinfo: true},
     plugins: [
       new NoEmitOnErrorsPlugin(),
-      new HtmlWebpackPlugin({title: 'Scythekick', template: 'app/index.jsx'}),
+      // new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.js'}),
       new ExtractTextPlugin({filename: '[name].css'}),
       new ManifestPlugin(),
       new HotModuleReplacementPlugin(),

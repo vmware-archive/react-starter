@@ -24,7 +24,7 @@ const Assets = {
     assets() {
       return gulp.src(Assets.installOptions.appGlobs)
         .pipe(Assets.webpack({}))
-        .pipe(gulp.dest(Assets.installOptions.buildDirectory))
+        .pipe(gulp.dest(Assets.installOptions.buildDirectory));
     }
   }
 };
