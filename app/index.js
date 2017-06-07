@@ -4,13 +4,14 @@ const ReactDOM = require('react-dom');
 const Application = require('./components/application');
 const {AppContainer} = require('react-hot-loader');
 
-require('babel!pui-react-tools/assets/entry-loader?name=index.html!./components/application');
-invariant(global.MyReactStarter,
-  `globalNamespace in application.json has been changed without updating global variable name bootstrap.js.
-  Please change "MyReactStarter" in bootstrap.js to your current globalNamespace`
-);
-
-const {config} = global.MyReactStarter;
+// require('babel-loader!pui-react-tools/assets/entry-loader?name=index.html!./components/application');
+// invariant(global.MyReactStarter,
+//   `globalNamespace in application.json has been changed without updating global variable name bootstrap.js.
+//   Please change "MyReactStarter" in bootstrap.js to your current globalNamespace`
+// );
+//
+// const {config} = global.MyReactStarter;
+const config = {globalNamespace: "MyReactStarter"};
 ReactDOM.render(
   <AppContainer>
     <Application {...{config}}/>

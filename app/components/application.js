@@ -1,4 +1,3 @@
-require('babel-polyfill');
 const React = require('react');
 const types = React.PropTypes;
 const {useStore} = require('p-flux');

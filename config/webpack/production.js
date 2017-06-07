@@ -34,7 +34,7 @@ export default function() {
     plugins: [
       new DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
       new NoEmitOnErrorsPlugin(),
-      new HtmlWebpackPlugin({title: 'Scythekick', template: 'app/index.jsx'}),
+      new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.js'}),
       new FaviconsWebpackPlugin('./app/images/1024\ -\ App\ Store.png'),
       new ManifestPlugin(),
       new ExtractTextPlugin({filename: '[name]-[hash].css'}),

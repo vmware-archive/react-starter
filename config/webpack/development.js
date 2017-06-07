@@ -11,7 +11,7 @@ export default function() {
     cache: true,
     devtool: 'source-map',
     entry: {
-      application: ['react-hot-loader/patch', './app/index.js', 'webpack-hot-middleware/client?path=__webpack_hmr']
+      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js', 'webpack-hot-middleware/client?path=__webpack_hmr']
     },
     module: {
       rules: [
@@ -30,7 +30,7 @@ export default function() {
     output: {filename: '[name].js', chunkFilename: '[id].js', pathinfo: true},
     plugins: [
       new NoEmitOnErrorsPlugin(),
-      new HtmlWebpackPlugin({title: 'Scythekick', template: 'app/index.jsx'}),
+      new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),
       new ExtractTextPlugin({filename: '[name].css'}),
       new ManifestPlugin(),
       new HotModuleReplacementPlugin(),
