@@ -27,7 +27,7 @@ export default function() {
         {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}
       ]
     },
-    output: {filename: '[name].js', chunkFilename: '[id].js', pathinfo: true},
+    output: {filename: '[name].js', chunkFilename: '[id].js', pathinfo: true, publicPath: '/'},
     plugins: [
       new NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),

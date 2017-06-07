@@ -1,5 +1,3 @@
-require('isomorphic-fetch');
-
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 400) return response;
   const error = new Error(response.statusText);
@@ -9,6 +7,7 @@ function checkStatus(response) {
 
 module.exports = {
   fetchJson(url, {accessToken, headers, ...options} = {}) {
+    require('isomorphic-fetch');
     const acceptHeaders = {accept: 'application/json', 'Content-Type': 'application/json'};
     const authorizationHeaders = accessToken ? {authorization: `Bearer ${accessToken}`} : {};
     options = {credentials: 'same-origin', headers: {...acceptHeaders, ...authorizationHeaders, ...headers}, ...options};

@@ -32,7 +32,7 @@ const Jasmine = {
     //TODO: validate webpack.test exists and throw useful error message
     let javascript = gulp.src(Jasmine.installOptions.appGlobs, gulpOptions).pipe(plumber());
     if (options !== false) {
-      const {browserAppAssetsOptions, plugins, ...rest} = options || {};
+      const {plugins, ...rest} = options || {};
       const testConfig = {...Jasmine.installOptions.webpack.test(), ...rest};
       const config = {...testConfig, ...rest, ...{plugins: (testConfig.plugins || []).concat(plugins || [])}};
       javascript = javascript.pipe(webpack({config, quiet: true, watch: config.watch}, webpackCompiler));

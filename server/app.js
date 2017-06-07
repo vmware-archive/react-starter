@@ -1,22 +1,23 @@
 const express = require('express');
-const path = require('path');
+import assets from './middleware';
+import development from '../config/webpack/development';
+import production from '../config/webpack/production';
+import history from 'connect-history-api-fallback';
 
-module.exports = function(config) {
+
+module.exports = function (config) {
   require('./env')();
-  const {useWebpackDevMiddleware} = config;
-  const app = express();
 
-  if (useWebpackDevMiddleware) {
-    const webpackHotMiddleware = require('pui-react-tools/middleware/webpack');
-    app.use(...webpackHotMiddleware());
-    app.get('/config.js', function(req, res) {
-      res.type('text/javascript').status(200)
-        .send(`window.${config.globalNamespace} = {config: ${JSON.stringify(config)}, foo: "bar"}`);
-    });
-    app.get('*', webpackHotMiddleware.url('/index.html'));
-  } else {
-    app.use(express.static(path.join(__dirname, '..', 'public')));
-  }
+  const app = express();
+  const webpackConfig = process.NODE_ENV === 'production' ? production : development;
+  const assetsMiddleware = assets(config, webpackConfig());
+  app.use(history({
+    rewrites: [
+      {from: /\/__webpack_hmr/, to: '/__webpack_hmr'}
+    ]
+  }));
+
+  app.use(assetsMiddleware);
 
   return app;
 };

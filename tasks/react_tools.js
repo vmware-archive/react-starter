@@ -18,9 +18,6 @@ Foreman.install();
 Lint.install();
 
 
-
-
-
 Jasmine.install({
   webpack: {test}
 });

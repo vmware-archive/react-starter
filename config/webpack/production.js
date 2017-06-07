@@ -11,7 +11,7 @@ import autoprefixer from 'autoprefixer';
 export default function() {
   return {
     entry: {
-      application: './app/index.js'
+      application: ['babel-polyfill', './app/index.js']
     },
     module: {
       rules: [
@@ -34,8 +34,7 @@ export default function() {
     plugins: [
       new DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
       new NoEmitOnErrorsPlugin(),
-      new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.js'}),
-      new FaviconsWebpackPlugin('./app/images/1024\ -\ App\ Store.png'),
+      new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),
       new ManifestPlugin(),
       new ExtractTextPlugin({filename: '[name]-[hash].css'}),
       new UglifyJsPlugin({
