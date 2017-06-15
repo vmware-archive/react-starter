@@ -9,11 +9,9 @@ const pipe = require('multipipe');
 
 const Jasmine = {
   installOptions: {
-    browserAppAssetsOptions: {},
     browserServerOptions: {},
     browserSpecRunnerOptions: {},
     getAdditionalAppAssets: () => [],
-    headlessAppAssetsOptions: {},
     headlessServerOptions: {},
     headlessSpecRunnerOptions: {},
     serverOptions: {},
@@ -52,14 +50,14 @@ const Jasmine = {
   tasks: {
     jasmine() {
       const plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
-      const {browserAppAssetsOptions, browserServerOptions, browserSpecRunnerOptions} = Jasmine.installOptions;
-      return Jasmine.appAssets({plugins: [plugin], browserAppAssetsOptions})
+      const {browserServerOptions, browserSpecRunnerOptions} = Jasmine.installOptions;
+      return Jasmine.appAssets({plugins: [plugin]})
         .pipe(jasmineBrowser.specRunner(browserSpecRunnerOptions))
         .pipe(jasmineBrowser.server({whenReady: plugin.whenReady, ...browserServerOptions}));
     },
     specApp() {
-      const {headlessAppAssetsOptions, headlessServerOptions, headlessSpecRunnerOptions} = Jasmine.installOptions;
-      return Jasmine.appAssets({watch: false, ...headlessAppAssetsOptions})
+      const {headlessServerOptions, headlessSpecRunnerOptions} = Jasmine.installOptions;
+      return Jasmine.appAssets({watch: false})
         .pipe(jasmineBrowser.specRunner({console: true, ...headlessSpecRunnerOptions}))
         .pipe(jasmineBrowser.headless({driver: 'phantomjs', ...headlessServerOptions}));
     },

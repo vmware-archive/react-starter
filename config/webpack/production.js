@@ -3,7 +3,6 @@ import ManifestPlugin from 'webpack-manifest-plugin';
 import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import LoaderOptionsPlugin from 'webpack/lib/LoaderOptionsPlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import autoprefixer from 'autoprefixer';
@@ -47,5 +46,5 @@ export default function() {
       }}),
     ],
     stats: {colors: true, cached: false}
-  }
+  };
 };

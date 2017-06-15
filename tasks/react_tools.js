@@ -5,12 +5,11 @@ import production from '../config/webpack/production';
 import Jasmine from './jasmine';
 import Assets from './assets';
 
-
-
 Assets.install({
   webpack: {
     development,
-    production
+    production,
+    integration: production
   }
 });
 

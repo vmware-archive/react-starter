@@ -2,10 +2,9 @@ import express from 'express';
 import path from 'path';
 import {Router} from 'express';
 
-export default function assets(config, webpackConfig) {
+export default function assets(nodeEnv, webpackConfig) {
   const router = new Router();
-  const {useWebpackDevMiddleware} = config;
-  if (useWebpackDevMiddleware) {
+  if (nodeEnv === 'development') {
     const dev = require('webpack-dev-middleware');
     const hot = require('webpack-hot-middleware');
     const webpack = require('webpack');
@@ -15,7 +14,7 @@ export default function assets(config, webpackConfig) {
     }));
     router.use(hot(compiler));
   } else {
-    router.use(express.static(path.resolve(__dirname, '../../public')));
+    router.use(express.static(path.resolve(__dirname, '../public')));
   }
   return router;
 }
