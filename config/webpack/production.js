@@ -2,6 +2,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
+import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LoaderOptionsPlugin from 'webpack/lib/LoaderOptionsPlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
@@ -34,6 +35,7 @@ export default function() {
       new DefinePlugin({'process.env': {'NODE_ENV': '"production"'}}),
       new NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),
+      new HtmlWebpackIncludeAssetsPlugin({ assets: ['config.js'], append: false, hash: true}),
       new ManifestPlugin(),
       new ExtractTextPlugin({filename: '[name]-[hash].css'}),
       new UglifyJsPlugin({

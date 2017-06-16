@@ -1,5 +1,6 @@
 import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+// import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import HotModuleReplacementPlugin from 'webpack/lib/HotModuleReplacementPlugin';
@@ -11,7 +12,8 @@ export default function() {
     cache: true,
     devtool: 'source-map',
     entry: {
-      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js', 'webpack-hot-middleware/client?path=__webpack_hmr']
+      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js', 'webpack-hot-middleware/client?path=__webpack_hmr'],
+      config: ['./app/config.js']
     },
     module: {
       rules: [
@@ -31,6 +33,7 @@ export default function() {
     plugins: [
       new NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),
+      // new HtmlWebpackIncludeAssetsPlugin({ assets: ['config.js'], append: false, hash: true}),
       new ExtractTextPlugin({filename: '[name].css'}),
       new ManifestPlugin(),
       new HotModuleReplacementPlugin(),
@@ -38,5 +41,5 @@ export default function() {
         postcss: () => [autoprefixer],
       }}),
     ]
-  }
+  };
 };

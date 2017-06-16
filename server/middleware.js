@@ -2,9 +2,9 @@ import express from 'express';
 import path from 'path';
 import {Router} from 'express';
 
-export default function assets(nodeEnv, webpackConfig) {
+export default function assets(NODE_ENV, webpackConfig) {
   const router = new Router();
-  if (nodeEnv === 'development') {
+  if (NODE_ENV === 'development') {
     const dev = require('webpack-dev-middleware');
     const hot = require('webpack-hot-middleware');
     const webpack = require('webpack');
