@@ -20,7 +20,7 @@
     "bluebird": "^3.4.6",
     "classnames": "^2.2.5",
     "debug": "^2.2.0",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "event-stream": "^3.3.4",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "git+https://git@github.com/digitalkaoz/extract-text-webpack-plugin#5b082b0bac0e068e9246d67c5cf6edeac3a5675b",

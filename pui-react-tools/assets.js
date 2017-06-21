@@ -1,6 +1,7 @@
 const {obj: from} = require('from2');
 const File = require('vinyl');
 
+import del from 'del';
 import gulp from 'gulp';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
@@ -15,6 +16,7 @@ const Assets = {
   install(installOptions = {}) {
     if (!installOptions.webpack) throw new Error('webpack config is required in Assets.install');
     Object.assign(Assets.installOptions, installOptions);
+    gulp.task('clean-assets', Assets.tasks.cleanAssets);
     gulp.task('assets', Assets.tasks.assets);
     gulp.task('assets-config', Assets.tasks.assetsConfig);
   },
@@ -47,6 +49,14 @@ const Assets = {
 
     assetsConfig() {
       Assets.config().pipe(gulp.dest(Assets.installOptions.buildDirectory));
+    },
+
+    cleanAssets(done){
+      const {buildDirectory} = Assets.installOptions;
+      del([
+        `${buildDirectory}/*`,
+        `!${buildDirectory}/.gitkeep`
+      ]).then(() => done(), done);
     }
   }
 };

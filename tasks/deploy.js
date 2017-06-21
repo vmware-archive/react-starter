@@ -13,7 +13,7 @@ gulp.task('copy-staticfile', () => {
 gulp.task('deploy', (done) => {
   const {NODE_ENV: env} = process.env;
   process.env.NODE_ENV = 'production';
-  runSequence('assets', 'assets-config', 'copy-staticfile', 'push', () => {
+  runSequence('clean-assets', 'assets', 'assets-config', 'copy-staticfile', 'push', () => {
     process.env.NODE_ENV = env;
     done();
   });
