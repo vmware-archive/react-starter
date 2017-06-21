@@ -24,7 +24,6 @@
     "event-stream": "^3.3.4",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "git+https://git@github.com/digitalkaoz/extract-text-webpack-plugin#5b082b0bac0e068e9246d67c5cf6edeac3a5675b",
-    "favicons-webpack-plugin": "git+https://git@github.com/LoicMahieu/favicons-webpack-plugin#8d6cb3ece66b6c5baa74250e56cc8ade861d99aa",
     "fbjs": "^0.8.5",
     "foreman": "^2.0.0",
     "from2": "^2.3.0",

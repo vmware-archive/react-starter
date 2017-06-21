@@ -1,7 +1,6 @@
 import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import HotModuleReplacementPlugin from 'webpack/lib/HotModuleReplacementPlugin';
 import LoaderOptionsPlugin from 'webpack/lib/LoaderOptionsPlugin';
@@ -33,7 +32,6 @@ export default function() {
       new NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({title: 'ReactStarter', template: 'app/index.jsx'}),
       new HtmlWebpackIncludeAssetsPlugin({ assets: ['config.js'], append: false, hash: true}),
-      new ExtractTextPlugin({filename: '[name].css'}),
       new ManifestPlugin(),
       new HotModuleReplacementPlugin(),
       new LoaderOptionsPlugin({options: {
