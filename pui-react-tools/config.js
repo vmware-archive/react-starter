@@ -39,9 +39,9 @@ function exists(filename) {
 function requireEnvFile(...files) {
   const currentDirectory = process.cwd();
   return files
-    .map(filename => path.join(process.cwd(), 'config', `${filename}.json`))
+    .map(filename => path.join(currentDirectory, 'config', `${filename}.json`))
     .filter(exists)
-    .map(filename => require(`${process.cwd()}/baseDir/${filename}`));
+    .map(filename => require(filename));
 }
 
 module.exports = function() {

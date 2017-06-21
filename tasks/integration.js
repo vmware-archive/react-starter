@@ -12,6 +12,7 @@ function buildSequence(env) {
   return {
     sequence: compact([
       'assets',
+      'assets-config',
       'server',
       'wait-for-server',
       'jasmine-integration'
