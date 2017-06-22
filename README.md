@@ -5,29 +5,20 @@
 React Starter is a todoApp project with much of the tooling in place you would need for a fully-featured React application.
 [Click here](http://react-starter.cfapps.io/) to see it in action.
 
+# Table of Contents
+1. [Getting Started](#getting-started)
+1. [Testing](#testing)
+1. [Linting](#linting)
+1. [Assets](#assets)
+1. [Patterns](#patterns)
+1. [Troubleshooting](#troubleshooting)
+
 ## Getting Started
 
-First, make sure you have:
-
-* Node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
-* Npm version 3+
-
-If either of these is an earlier version, you will likely see errors when you run the code. 
-If you have installed and then realize you need to change either of these, you will need to `rm -rf node_modules` and `npm install` to make sure dependencies are correctly updated and installed.
-
-```
+```bash
 git clone git@github.com:pivotal-cf/react-starter.git && cd react-starter
 npm install
-```
-
-(Windows Users: To install node-sass, you will need a C compiler like Visual Studio installed, and probably also Python 2.x)
-
-### Using gulp
-
-To make life easier, add `./node_modules/.bin` to your PATH. This will give you access to `gulp`.
-
-```
-gulp foreman
+./node_modules/.bin/gulp foreman
 ```
 
 This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888).
@@ -41,15 +32,15 @@ Any files matching `spec/app/**/*_spec.js` will be run as part of [Jasmine](jasm
 
 To run the tests headlessly in phantomjs:
 ```
-gulp spec-app
+./node_modules/.bin/gulp spec-app
 ```
 
 To run a Jasmine server (on port 8888):
 ```
-gulp jasmine
+./node_modules/.bin/gulp jasmine
 ```
 The jasmine server will watch for file changes and update appropriately.
-Note that `gulp foreman` will start a jasmine server for you.
+Note that `./node_modules/.bin/gulp foreman` will start a jasmine server for you.
 
 In general, testing a React component will need the line `require('../spec_helper')` as the first line.
 The test will also probably have lines like
@@ -79,7 +70,7 @@ Integration tests use [selenium-standalone](https://github.com/vvo/selenium-stan
 
 Selenium requires Java, so make sure this is installed. Run:
 ```
-gulp spec-integration
+./node_modules/.bin/gulp spec-integration
 ```
 
 This will take any files matching `spec/integration/**/*_spec.js` and run them through Jasmine.
@@ -92,39 +83,45 @@ There are also a number of functions provided in `spec/integration/helpers/webdr
 
 An example integration test is provided at `spec/integration/features_spec.js`.
 
-### Linting
+## Linting
 
 To lint your JavaScript code using [ESLint](http://eslint.org/):
 
 ```
-gulp lint
+./node_modules/.bin/gulp lint
 ```
 
 The linting rules are set in `.eslintrc`
 
 
-### Development
+## Assets
 
-To start your development server, run:
-
-```
-gulp s
-```
-
-This will serve at [3000](http://localhost:3000). Note that `gulp foreman` will start a development server for you.
 The JavaScript is compiled using [Babel](https://babeljs.io/) and [Webpack](https://webpack.github.io/).
-By default, the entry point for your JavaScript is `app/components/application.js`.
-Webpack settings are controlled in `config/webpack.config.js`.
+Additional webpack loaders and webpack plugins are used to compile the sass and html. By default, the entry point for your browser JavaScript is `app/index.js`.
 
-#### Workflow
+Webpack configurations are in `config/webpack/`. For example, if NODE_ENV is 'production', webpack is configured with `config/webpack/production.js`
+
+```bash
+NODE_ENV=production ./node_modules/.bin/gulp assets
+```
+will output `application.js`, `application.css`, and `index.html` into the public folder.
+```bash
+NODE_ENV=production ./node_modules/.bin/gulp assets-config
+```
+will output `config.js` into the public folder. These assets can then be served statically.
+
+React starter is in development mode if `NODE_ENV=development` or undefined.
+In development mode, the express server serves up `index.html`, `application.js` and `application.css`, using `webpack-dev-middleware`. `config.js` is served separately. This uses the webpack config in `config/webpack/development.js`
+
+## Patterns
+
+#### Flux
 
 We have provided an example flux implementation in this application.
 
 * A component calls an action
 * The action calls the dispatcher
 * The corresponding method in the dispatcher updates the global store
-
-#### Flux
 
 The flux patterns used in React starter have been extracted into [p-flux](https://github.com/pivotal-cf/p-flux).
 Look into p-flux documentation for best practices on storing and updating data.
@@ -148,3 +145,16 @@ If you do not mock the router, it will change your browser URL while running Jas
 We have provided an example workflow that talks to an api, using the JSONPlaceholder api and `window.fetch`.
 Using an api requires asynchronous testing, which can be difficult.
 We use [MockPromises](https://github.com/charleshansen/mock-promises) to deal with most of it.
+
+## Troubleshooting
+
+### node
+
+React Starter requires:
+* Node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
+* Npm version 3+
+
+If either of these is an earlier version, you will likely see errors when you run the code. 
+If you have installed and then realize you need to change either of these, you will need to `rm -rf node_modules` and `npm install` to make sure dependencies are correctly updated and installed.
+
+Windows Users: To install node-sass, you will need a C compiler like Visual Studio installed, and probably also Python 2.x
