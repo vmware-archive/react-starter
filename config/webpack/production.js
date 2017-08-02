@@ -21,7 +21,7 @@ export default function() {
           use: {loader: 'file-loader?name=[name]-[hash].[ext]'}
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           oneOf: [
             {test: /html-webpack-plugin/, use: 'null-loader'},
             {use: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: ['css-loader', 'postcss-loader', 'sass-loader']})}

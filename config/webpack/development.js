@@ -21,7 +21,7 @@ export default function() {
           use: {loader: 'file-loader?name=[name].[ext]'}
         },
         {
-          test: /\.?scss$/,
+          test: /\.s?css$/,
           use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
         },
         {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}
