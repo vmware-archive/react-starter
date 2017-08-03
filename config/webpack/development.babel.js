@@ -8,10 +8,20 @@ import autoprefixer from 'autoprefixer';
 
 export default function() {
   return {
+    devServer: {
+      proxy: {
+        '/config.js*': {
+          target: 'http://localhost:3000'
+        },
+        '*': {
+          bypass: () => '/index.html'
+        }
+      }
+    },
     cache: true,
     devtool: 'source-map',
     entry: {
-      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js', 'webpack-hot-middleware/client?path=__webpack_hmr']
+      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js']
     },
     module: {
       rules: [

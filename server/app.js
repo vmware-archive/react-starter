@@ -1,15 +1,15 @@
 import express from 'express';
-import assets from './middleware';
-import development from '../config/webpack/development';
-import production from '../config/webpack/production';
-import history from 'connect-history-api-fallback';
+// import assets from './middleware';
+// import development from '../config/webpack/development.babel';
+// import production from '../config/webpack/production';
+// import history from 'connect-history-api-fallback';
 
 export default function (config) {
   const app = express();
 
   const {NODE_ENV = 'development'} = process.env;
-  const webpackConfig = NODE_ENV === 'development' ? development : production;
-  const assetsMiddleware = assets(NODE_ENV, webpackConfig());
+  // const webpackConfig = NODE_ENV === 'development' ? development : production;
+  // const assetsMiddleware = assets(NODE_ENV, webpackConfig());
 
   if (NODE_ENV === 'development') {
     app.get('/config.js', (req, res) => {
@@ -18,13 +18,13 @@ export default function (config) {
     });
   }
 
-  app.use(history({
-    rewrites: [
-      {from: /\/__webpack_hmr/, to: '/__webpack_hmr'}
-    ]
-  }));
+  // app.use(history({
+  //   rewrites: [
+  //     {from: /\/__webpack_hmr/, to: '/__webpack_hmr'}
+  //   ]
+  // }));
 
-  app.use(assetsMiddleware);
+  // app.use(assetsMiddleware);
 
   return app;
 };

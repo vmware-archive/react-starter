@@ -111,7 +111,7 @@ NODE_ENV=production ./node_modules/.bin/gulp assets-config
 will output `config.js` into the public folder. These assets can then be served statically.
 
 React starter is in development mode if `NODE_ENV=development` or undefined.
-In development mode, the express server serves up `index.html`, `application.js` and `application.css`, using `webpack-dev-middleware`. `config.js` is served separately. This uses the webpack config in `config/webpack/development.js`
+In development mode, the express server serves up `index.html`, `application.js` and `application.css`, using `webpack-dev-middleware`. `config.js` is served separately. This uses the webpack config in `config/webpack/development.babel.js`
 
 ## Patterns
 

@@ -1,6 +1,6 @@
 import {Foreman, Lint} from 'pui-react-tools';
 import test from '../config/webpack/test';
-import development from '../config/webpack/development';
+import development from '../config/webpack/development.babel';
 import production from '../config/webpack/production';
 import Jasmine from '../pui-react-tools/jasmine';
 import Assets from '../pui-react-tools/assets';

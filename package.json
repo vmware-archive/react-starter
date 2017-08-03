@@ -70,7 +70,7 @@
     "react-dom": "~15.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "recluster": "^0.4.5",
-    "require-dir": "^0.3.1",
+    "require-dir": "^0.3.2",
     "rosie": "^1.6.0",
     "run-sequence": "^1.2.2",
     "selenium-standalone": "^5.8.0",
@@ -81,6 +81,7 @@
     "vinyl": "^2.0.2",
     "webdriverio": "^4.3.0",
     "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.6.1",
     "webpack-hot-middleware": "^2.15.0",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-stream": "^3.2.0"
