@@ -9,9 +9,10 @@ import autoprefixer from 'autoprefixer';
 export default function() {
   return {
     devServer: {
+      hot: true,
       proxy: {
         '/config.js*': {
-          target: 'http://localhost:3000'
+          target: 'http://localhost:3001'
         },
         '*': {
           bypass: () => '/index.html'
@@ -21,7 +22,13 @@ export default function() {
     cache: true,
     devtool: 'source-map',
     entry: {
-      application: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js']
+      application: [
+        'babel-polyfill',
+        'react-hot-loader/patch',
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
+        './app/index.js'
+      ],
     },
     module: {
       rules: [
