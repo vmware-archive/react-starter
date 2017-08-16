@@ -12,7 +12,7 @@ export default function() {
       hot: true,
       proxy: {
         '/config.js*': {
-          target: 'http://localhost:3001'
+          target: `http://localhost:${process.env.API_PORT || 3001}`
         },
         '*': {
           bypass: () => '/index.html'
