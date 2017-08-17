@@ -10,7 +10,7 @@ function kill() {
 }
 
 gulp.task('dev-server', done => {
-    const config = require('../config/webpack/development.babel.js')();
+    const config = require('../config/webpack/development.js')();
     const compiler = webpack(config);
     compiler.plugin('done', () => {
         done();
