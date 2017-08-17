@@ -5,6 +5,8 @@
 React Starter is a todoApp project with much of the tooling in place you would need for a fully-featured React application.
 [Click here](http://react-starter.cfapps.io/) to see it in action.
 
+The master branch of React Starter is currently using Webpack 1. To see a version with Webpack 2, check out the [v3 branch](https://github.com/pivotal-cf/react-starter/tree/v3)
+
 ## Getting Started
 
 First, make sure you have:
