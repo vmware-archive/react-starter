@@ -2,9 +2,14 @@ require('babel-core/register');
 require('babel-polyfill');
 
 /* eslint-disable no-var */
-var app = require('./app')(require('pui-react-tools/assets/config'));
+let app = require('./app')(require('pui-react-tools/assets/config')());
 /* eslint-enable no-var */
-app.listen(process.env.PORT || 3000, function() {
+let apiPort = process.env.API_PORT || process.env.PORT || 3001;
+/* eslint-disable no-console */
+console.log(`API listening on ${apiPort}`);
+/* eslint-enable no-console */
+
+app.listen(apiPort, function() {
   process.send && process.send({cmd: 'ready'});
 });
 

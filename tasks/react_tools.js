@@ -1,12 +1,19 @@
-const {Assets, Foreman, Lint, Jasmine} = require('pui-react-tools');
+import {Assets, Foreman, Jasmine, Lint} from 'pui-react-tools';
+import test from '../config/webpack/test';
+import development from '../config/webpack/development';
+import production from '../config/webpack/production';
 
 Assets.install({
-  assets: {
-    sass: false,
-    html: false
-  },
-  useAssetsServer: false
+  webpack: {
+    development,
+    production,
+    integration: production
+  }
 });
+
 Foreman.install();
 Lint.install();
-Jasmine.install();
+
+Jasmine.install({
+  webpack: {test}
+});

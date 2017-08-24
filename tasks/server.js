@@ -25,13 +25,16 @@ gulp.task('server', function() {
 });
 
 gulp.task('wait-for-server', function(callback) {
-  waitUntilListening({port: process.env.PORT, timeoutInMs: 90000}, callback);
+  /* eslint-disable no-console */
+  console.log(`waiting for server on ${process.env.API_PORT}`);
+  /* eslint-enable no-console */
+  waitUntilListening({port: process.env.API_PORT, timeoutInMs: 90000}, callback);
 });
 
 gulp.task('watch-server', function() {
   gulp.watch(['server/**/*.js', 'helpers/**/*.js', 'lib/**/*.js', 'config/*.json'], ['server']);
 });
 
-gulp.task('s', ['server', 'watch-server', 'assets-config']);
+gulp.task('s', ['server', 'watch-server']);
 
 module.exports = {restartServer, killServer};

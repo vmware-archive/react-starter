@@ -1,6 +1,5 @@
-require('babel-polyfill');
 const React = require('react');
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 const {useStore} = require('p-flux');
 const {useRouter} = require('./use_router');
 const Router = require('./router');
@@ -11,9 +10,9 @@ if (typeof document !== 'undefined') {
 
 class Application extends React.Component {
   static propTypes = {
-    config: types.object.isRequired,
-    store: types.object.isRequired,
-    router: types.oneOfType([types.object, types.func])
+    config: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired,
+    router: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
   };
 
   render() {

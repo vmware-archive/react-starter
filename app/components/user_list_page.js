@@ -1,9 +1,9 @@
 const React = require('react');
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 class UserListPage extends React.Component {
   static propTypes = {
-    users: types.array
+    users: PropTypes.array
   };
 
   render() {

@@ -1,2 +1,3 @@
 web: gulp s
 jasmine: gulp jasmine
+assets: PORT=3000 gulp dev-server

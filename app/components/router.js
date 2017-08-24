@@ -1,5 +1,5 @@
 const React = require('react');
-const types = require('react').PropTypes;
+import PropTypes from 'prop-types';
 const ApiPage = require('./api_page');
 const UserCreatePage = require('./user_create_page');
 const UserListPage = require('./user_list_page');
@@ -35,7 +35,7 @@ const PAGES = { ApiPage, UserCreatePage, UserListPage, TodoPage };
 
 class Router extends React.Component {
   static propTypes = {
-    router: types.oneOfType([types.object, types.func])
+    router: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
   };
 
   constructor(props, context) {
