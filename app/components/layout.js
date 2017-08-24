@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOMServer from 'react-dom/server';
 
 export default function Layout({config, children}) {
@@ -16,7 +17,7 @@ export default function Layout({config, children}) {
 }
 
 Layout.propTypes = {
-  config: React.PropTypes.object.isRequired
+  config: PropTypes.object.isRequired
 };
 
 Layout.metas = [

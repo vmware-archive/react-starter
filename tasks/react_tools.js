@@ -1,9 +1,7 @@
-import {Foreman, Lint} from 'pui-react-tools';
+import {Assets, Foreman, Jasmine, Lint} from 'pui-react-tools';
 import test from '../config/webpack/test';
 import development from '../config/webpack/development';
 import production from '../config/webpack/production';
-import Jasmine from '../pui-react-tools/jasmine';
-import Assets from '../pui-react-tools/assets';
 
 Assets.install({
   webpack: {
@@ -15,7 +13,6 @@ Assets.install({
 
 Foreman.install();
 Lint.install();
-
 
 Jasmine.install({
   webpack: {test}

@@ -1,9 +1,9 @@
 const React = require('react');
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 class TodoItem extends React.Component{
   static propTypes = {
-    value: types.node.isRequired
+    value: PropTypes.node.isRequired
   };
 
   render() {

@@ -25,7 +25,7 @@ export default function() {
       application: [
         'babel-polyfill',
         'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3000',
+        `webpack-dev-server/client?http://localhost:${process.env.PORT || 3000}`,
         'webpack/hot/only-dev-server',
         './app/index.js'
       ],

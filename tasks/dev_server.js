@@ -10,18 +10,18 @@ function kill() {
 }
 
 gulp.task('dev-server', done => {
-    const config = require('../config/webpack/development.js')();
-    const compiler = webpack(config);
-    compiler.plugin('done', () => {
-        done();
-    });
-    server = new WebpackDevServer(compiler, config.devServer);
+  const config = require('../config/webpack/development.js')();
+  const compiler = webpack(config);
+  compiler.plugin('done', () => {
+    done();
+  });
+  server = new WebpackDevServer(compiler, config.devServer);
 
-    const port = process.env.PORT || devServerPort;
+  const port = process.env.PORT || devServerPort;
   /* eslint-disable no-console */
-    console.log(`dev server listening on port ${port}`);
+  console.log(`dev server listening on port ${port}`);
   /* eslint-enable no-console */
-    server.listen(port);
+  server.listen(port);
 });
 
 export {kill};

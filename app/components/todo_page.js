@@ -1,12 +1,12 @@
 const React = require('react');
-const types = require('react').PropTypes;
+import PropTypes from 'prop-types';
 const TodoAdder = require('./todo_adder');
 const TodoList = require('./todo_list');
 
 class TodoPage extends React.Component {
   static propTypes = {
-    config: types.object,
-    todoItems: types.array
+    config: PropTypes.object,
+    todoItems: PropTypes.array
   };
 
   render() {

@@ -1,4 +1,5 @@
 require('../spec_helper');
+import PropTypes from 'prop-types';
 
 describe('#useRouter', () => {
   let routeSpy;
@@ -16,7 +17,7 @@ describe('#useRouter', () => {
       );
     };
     Application.propTypes = {
-      router: React.PropTypes.func.isRequired
+      router: PropTypes.func.isRequired
     };
 
     const TestRouter = useRouter(Application);

@@ -1,10 +1,10 @@
 const {Actions} = require('p-flux');
 const React = require('react');
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 class ApiPage extends React.Component {
   static propTypes = {
-    posts: types.array
+    posts: PropTypes.array
   };
 
   componentDidMount() {
