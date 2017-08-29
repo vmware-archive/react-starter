@@ -4,9 +4,7 @@ import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import LoaderOptionsPlugin from 'webpack/lib/LoaderOptionsPlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
-import autoprefixer from 'autoprefixer';
 
 export default function() {
   return {
@@ -42,10 +40,7 @@ export default function() {
         compressor: {screw_ie8: true, warnings: false},
         mangle: {screw_ie8: true},
         output: {comments: false, screw_ie8: true}
-      }),
-      new LoaderOptionsPlugin({options: {
-        postcss: () => [autoprefixer],
-      }}),
+      })
     ],
     stats: {colors: true, cached: false}
   };

@@ -1,7 +1,5 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import NoEmitOnErrorsPlugin from 'webpack/lib/NoEmitOnErrorsPlugin';
-import LoaderOptionsPlugin from 'webpack/lib/LoaderOptionsPlugin';
-import autoprefixer from 'autoprefixer';
 
 export default function() {
   return {
@@ -26,9 +24,6 @@ export default function() {
     plugins: [
       new NoEmitOnErrorsPlugin(),
       new ExtractTextPlugin({filename: '[name].css'}),
-      new LoaderOptionsPlugin({options: {
-        postcss: () => [autoprefixer],
-      }})
     ],
     watch: true
   };
