@@ -24,6 +24,16 @@ npm install
 This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888).
 The app includes example React architecture, along with Jasmine unit tests and a WebdriverIO integration test.
 
+## Deploying
+
+To deploy to cloud foundry:
+
+1. choose a unique name for your application and change `name: react-starter` in `manifest.yml` to your unique name
+1. login to cf, target your org and space
+1. `./node_modules/.bin/gulp deploy`
+
+Note that `cf push` by itself will not work. The `gulp deploy` task will compile your assets and configure the staticfile for the buildpack before doing `cf push`
+
 ## Testing
 
 ### Unit Testing
