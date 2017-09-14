@@ -15,10 +15,16 @@ React Starter is a todoApp project with much of the tooling in place you would n
 
 ## Getting Started
 
+Install gulp:
+```bash
+brew install gulp
+```
+
+Checkout the project, install dependencies, and start foreman:
 ```bash
 git clone git@github.com:pivotal-cf/react-starter.git && cd react-starter
 npm install
-./node_modules/.bin/gulp foreman
+gulp foreman
 ```
 
 This will start up the development server at [3000](http://localhost:3000) and the Jasmine server at [8888](http://localhost:8888).
@@ -30,7 +36,7 @@ To deploy to cloud foundry:
 
 1. choose a unique name for your application and change `name: react-starter` in `manifest.yml` to your unique name
 1. login to cf, target your org and space
-1. `./node_modules/.bin/gulp deploy`
+1. `gulp deploy`
 
 Note that `cf push` by itself will not work. The `gulp deploy` task will compile your assets and configure the staticfile for the buildpack before doing `cf push`
 
@@ -42,15 +48,15 @@ Any files matching `spec/app/**/*_spec.js` will be run as part of [Jasmine](jasm
 
 To run the tests headlessly in phantomjs:
 ```
-./node_modules/.bin/gulp spec-app
+gulp spec-app
 ```
 
 To run a Jasmine server (on port 8888):
 ```
-./node_modules/.bin/gulp jasmine
+gulp jasmine
 ```
 The jasmine server will watch for file changes and update appropriately.
-Note that `./node_modules/.bin/gulp foreman` will start a jasmine server for you.
+Note that `gulp foreman` will start a jasmine server for you.
 
 In general, testing a React component will need the line `require('../spec_helper')` as the first line.
 The test will also probably have lines like
@@ -80,7 +86,7 @@ Integration tests use [selenium-standalone](https://github.com/vvo/selenium-stan
 
 Selenium requires Java, so make sure this is installed. Run:
 ```
-./node_modules/.bin/gulp spec-integration
+gulp spec-integration
 ```
 
 This will take any files matching `spec/integration/**/*_spec.js` and run them through Jasmine.
@@ -98,7 +104,7 @@ An example integration test is provided at `spec/integration/features_spec.js`.
 To lint your JavaScript code using [ESLint](http://eslint.org/):
 
 ```
-./node_modules/.bin/gulp lint
+gulp lint
 ```
 
 The linting rules are set in `.eslintrc`
@@ -112,11 +118,11 @@ Additional webpack loaders and webpack plugins are used to compile the sass and 
 Webpack configurations are in `config/webpack/`. For example, if NODE_ENV is 'production', webpack is configured with `config/webpack/production.js`
 
 ```bash
-NODE_ENV=production ./node_modules/.bin/gulp assets
+NODE_ENV=production gulp assets
 ```
 will output `application.js`, `application.css`, and `index.html` into the public folder.
 ```bash
-NODE_ENV=production ./node_modules/.bin/gulp assets-config
+NODE_ENV=production gulp assets-config
 ```
 will output `config.js` into the public folder. These assets can then be served statically.
 
