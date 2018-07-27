@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Use [Create React App](https://github.com/facebook/create-react-app)
+
 # React Starter
 
 [![Build Status](https://travis-ci.org/pivotal-cf/react-starter.svg?branch=master)](https://travis-ci.org/pivotal-cf/react-starter)
